@@ -10,10 +10,10 @@ export default [
     element: <MainLayout><Outlet/></MainLayout>,
     children: [ ...homePageRoutes, ...loginPageRoutes ],
   },
-  {
-    path: '/login',
-    element: <Navigate to="/"/>,
-  },
+  // {
+  //   path: '/login',
+  //   element: <Navigate to="/"/>,
+  // },
   {
     path: '*',
     element: <div>404</div>,

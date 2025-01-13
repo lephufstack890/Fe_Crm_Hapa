@@ -9,6 +9,12 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        'mine-shaft': '#333',
+        'dusty-gray': '#999',
+        'science-blue': '#0076DC',
+        'caribbean-green': '#00CB77'
+      }
     },
   },
   variants: {

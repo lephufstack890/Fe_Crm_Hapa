@@ -1,87 +1,202 @@
-import styles from './home-page.module.scss';
-import { HomePageProps } from './home-page.types';
-import useHomePageViewModel from './home-page.view-model';
-import Button from '@components/elements/button';
+// import styles from './home-page.module.scss';
+// import { HomePageProps } from './home-page.types';
+// import useHomePageViewModel from './home-page.view-model';
+// import Button from '@components/elements/button';
 import Page from '@components/elements/page';
 import { withResourceBundle } from '@lib/i18n';
-import clsx from 'clsx';
+// import clsx from 'clsx';
 import React from 'react';
-import { HiOutlineTrash } from 'react-icons/hi2';
+// import { HiOutlineTrash } from 'react-icons/hi2';
 
-function HomePage(props: HomePageProps) {
-  const { className, testingID } = props;
+function HomePage(
+  // props: HomePageProps
 
-  const {
-    addTodo,
-    handleInputChange,
-    removeTodo,
-    todoItems,
-    todoText,
-    toggleTodo,
-    isAuthenticated,
-    changeLanguage,
-    language,
-    gotoLogin,
-    t,
-  } = useHomePageViewModel(props);
+) {
+  // const { className, testingID } = props;
+
+  // const {
+  //   addTodo,
+  //   handleInputChange,
+  //   removeTodo,
+  //   todoItems,
+  //   todoText,
+  //   toggleTodo,
+  //   isAuthenticated,
+  //   changeLanguage,
+  //   language,
+  //   gotoLogin,
+  //   t,
+  // } = useHomePageViewModel(props);
 
   return (
-    <Page className={clsx('home-page', styles.homePage, 'bg-gradient-to-r from-purple-500 to-indigo-600', className)} testingID={testingID}>
-      <div className="bg-white p-8 rounded-lg shadow-xl mt-16 mx-auto max-w-2xl">
-        <h1 className="text-4xl font-bold mb-6 text-center text-purple-700">✨ {t('title')} ✨</h1>
-        <div className="flex mb-6">
-          <input
-            type="text"
-            value={todoText}
-            onChange={handleInputChange}
-            placeholder={t('inputPlaceholder')}
-            className="flex-1 border p-3 rounded-l focus:outline-none focus:shadow-outline-purple text-gray-700"
-          />
-          <button
-            className="bg-purple-700 text-white p-3 rounded-r hover:bg-purple-800 focus:outline-none focus:shadow-outline-purple"
-            onClick={addTodo}
-          >
-            {t('addTodo')}
-          </button>
-        </div>
-        <ul>
-          {todoItems.map((todo) => (
-            <li
-              key={todo.id}
-              className={clsx('flex items-center justify-between bg-gray-200 p-4 mb-4 rounded text-gray-700', { 'line-through': todo.completed })}
-              onClick={toggleTodo(todo.id)}
-            >
-              <span className="text-lg">{todo.text}</span>
-              <button className="text-red-500 hover:text-red-700 focus:outline-none" onClick={removeTodo(todo.id)}>
-                <HiOutlineTrash/>
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="bg-white p-8 rounded-lg shadow-xl mt-8 mx-auto max-w-2xl">
-        {isAuthenticated && <div className="text-green-500 text-lg font-bold mb-4">🔐 Authenticated 🔐</div>}
-        {!isAuthenticated && (
-          <Button className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline-purple" onClick={gotoLogin}>
-            {t('login')}
-          </Button>
-        )}
-        <a href="/#/protected-page" className="block text-center text-purple-700 mt-4 underline hover:text-purple-800">
-          {t('goToProtectedPage')}
-        </a>
+    <Page>
+      <div className="bg-white rounded-lg mt-16 w-[650px] mx-auto text-center py-10 mb-20">
+        <h1 className="text-mine-shaft text-[24px] font-bold mb-10">Tra cứu Lịch thay lõi lọc, Lịch sử đơn hàng...</h1>
 
-        <div className="text-center text-gray-500 mt-4">
-          {t('currentLanguage', { language: language })}
-          <div className="flex justify-center mt-4">
-            <button className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline-purple" onClick={changeLanguage('en')}>
-              en
-            </button>
-            <button className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded ml-4 focus:outline-none focus:shadow-outline-purple" onClick={changeLanguage('pt-BR')}>
-              pt-BR
-            </button>
+        <form className="w-[320px] mx-auto">
+          <div className="p-2 border border-solid border-dusty-gray mb-[20px]">
+            <input
+              className="w-full border-none outline-none text-center"
+              type="text"
+              placeholder="Nhập số điện thoại mua hàng"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="bg-science-blue py-[12px] rounded-full w-full text-center text-white text-[16px] font-bold"
+          >Tiếp tục</button>
+        </form>
+      </div>
+
+      <div className="bg-white rounded-lg mt-16 w-[650px] mx-auto text-center py-10 mb-20">
+        <div className="text-mine-shaft text-[22px] mb-10">Chưa tìm thấy thông tin khách hàng 0975322500.</div>
+
+        <div className="text-mine-shaft text-[22px] mb-10">
+          <div className="font-bold">Bạn đã từng mua hàng tại HAPA chưa?</div>
+          <div>(Website, Điện thoại, Zalo, Facebook, Shopee, Tiki, Lazada, TiktokShop...)</div>
+        </div>
+
+        <div className="flex items-center justify-center gap-x-5 mb-10">
+          <button
+            className="border w-[190px] border-solid border-science-blue py-[12px] rounded-full  text-center text-science-blue text-[16px] font-bold"
+          >Chưa từng mua</button>
+
+          <button
+
+            className="bg-science-blue py-[12px] rounded-full w-[190px] text-center text-white text-[16px] font-bold"
+          >Đã từng mua</button>
+        </div>
+
+        <div className="text-[16px] text-science-blue font-normal">
+          Thay đổi số điện thoại
+        </div>
+      </div>
+
+      <div className="bg-white rounded-lg mt-16 w-[650px] mx-auto text-center py-10 mb-20">
+        <h1 className="text-mine-shaft text-[22px]  mb-10">Xin vui lòng nhập thông tin
+          Mã đơn hàng</h1>
+
+        <form className="w-[320px] mx-auto mb-10">
+          <div className="p-2 border border-solid border-dusty-gray mb-[20px]">
+            <input
+              className="w-full border-none outline-none text-center"
+              type="text"
+              placeholder="Nhập mã đơn hàng"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="bg-science-blue py-[12px] rounded-full w-full text-center text-white text-[16px] font-bold"
+          >Tiếp tục</button>
+        </form>
+
+        <div className="text-[16px] text-science-blue font-normal">
+          Thay đổi số điện thoại
+        </div>
+      </div>
+
+      <div className="bg-white rounded-lg mt-16 w-[650px] mx-auto text-center py-10 mb-20">
+        <div className="text-caribbean-green text-[22px]  mb-10">
+          <div>Gửi thành công.</div>
+          <div>
+            HAPA sẽ phản hồi cho Quý khách trong thời gian
+            sớm nhất.
           </div>
         </div>
+
+        <div className="text-[16px] text-science-blue font-normal">
+          Thay đổi số điện thoại
+        </div>
       </div>
+
+      <div className="bg-white rounded-lg mt-16 w-[650px] mx-auto text-center py-10 mb-20">
+        <h1 className="text-mine-shaft text-[22px] mb-10">
+          Mã xác nhận đã được gửi đến
+          số điện thoại 0975322500
+        </h1>
+
+        <form className="w-[320px] mx-auto mb-10">
+          <div className="p-2 border border-solid border-dusty-gray mb-[20px]">
+            <input
+              className="w-full border-none outline-none text-center"
+              type="text"
+              placeholder="Nhập mã xác nhận gồm 6 chữ số"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="bg-science-blue py-[12px] rounded-full w-full text-center text-white text-[16px] font-bold"
+          >Tiếp tục</button>
+        </form>
+
+        <div className="text-[16px] text-mine-shaft font-normal mb-10">
+          Nếu không nhận được mã, thử lại sau <span className="font-bold">55 giây</span>
+        </div>
+
+        <div className="text-[16px] text-science-blue font-normal">
+          Thay đổi số điện thoại
+        </div>
+      </div>
+
+      <div className="bg-white rounded-lg mt-16 w-[650px] mx-auto text-center py-10 mb-20">
+        <h1 className="text-mine-shaft text-[22px] mb-10">
+          Mã xác nhận đã được gửi đến
+          số điện thoại 0975322500
+        </h1>
+
+        <form className="w-[320px] mx-auto mb-10">
+          <div className="p-2 border border-solid border-dusty-gray mb-[20px]">
+            <input
+              className="w-full border-none outline-none text-center"
+              type="text"
+              value={123456}
+              placeholder="Nhập mã xác nhận gồm 6 chữ số"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="bg-science-blue py-[12px] rounded-full w-full text-center text-white text-[16px] font-bold"
+          >Tiếp tục</button>
+        </form>
+
+        <div className="text-[16px] text-science-blue font-bold mb-10">
+          Gửi lại mã xác nhận
+        </div>
+
+        <div className="text-[16px] text-science-blue font-normal">
+          Thay đổi số điện thoại
+        </div>
+      </div>
+
+      <div className="bg-white rounded-lg mt-16 w-[650px] mx-auto text-center py-10 mb-20">
+        <h1 className="text-mine-shaft text-[22px] mb-10">
+          Mã xác nhận đã được gửi đến
+          số điện thoại 0975322500
+        </h1>
+
+        <form className="w-[320px] mx-auto mb-10">
+          <div className="p-2 border border-solid border-dusty-gray mb-[20px]">
+            <input
+              className="w-full border-none outline-none text-center"
+              type="text"
+              placeholder="Nhập mã xác nhận gồm 6 chữ số"
+            />
+          </div>
+        </form>
+
+        <div className="text-[16px] text-mine-shaft font-normal mb-10">
+          Nếu không nhận được mã, thử lại sau <span className="font-bold">55 giây</span>
+        </div>
+
+        <div className="text-[16px] text-science-blue font-normal">
+          Thay đổi số điện thoại
+        </div>
+      </div>
+
     </Page>
   );
 }
