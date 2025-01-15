@@ -30,7 +30,7 @@ function AppSidebar() {
                 isActive ? 'bg-[#F0F9FE] text-[#0076DC]' : 'text-mine-shaft hover:bg-[#F0F9FE] hover:text-[#0076DC]'
               }`
             }
-            to="/account/1"
+            to="/filter-replacement-schedule"
           >
             Thời gian thay lõi
           </NavLink>
