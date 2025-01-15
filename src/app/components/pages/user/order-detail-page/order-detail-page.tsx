@@ -2,13 +2,28 @@ import { OrderDetailPageProps } from './order-detail-page.types';
 import Page from '@components/elements/page';
 import { withResourceBundle } from '@lib/i18n';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function OrderDetailPage() {
+
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1); // Quay lại trang trước đó trong lịch sử
+  };
 
   return (
     <Page>
       <div className="m-6">
+        {/** Quay lại danh sách */}
+        <button onClick={goBack} className="mb-6 flex items-center gap-x-2 text-[#999999] text-[14px]">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fillRule="evenodd" clipRule="evenodd" d="M13.6666 6.16658H3.52492L8.18325 1.50825L6.99992 0.333252L0.333252 6.99992L6.99992 13.6666L8.17492 12.4916L3.52492 7.83325H13.6666V6.16658Z" fill="#999999"/>
+          </svg>
+
+          <span>Quay lại Danh sách đơn hàng</span>
+        </button>
+
         {/** Chi tiết đơn hàng */}
         <div className="grid grid-cols-10 mb-6 gap-x-6">
           <div className="bg-white rounded-lg  py-10 px-8  col-span-7">
