@@ -7,7 +7,7 @@ function AccountPage() {
 
   return (
     <Page>
-      <div className="bg-white rounded-lg mx-6 mt-6 py-10 px-12 mb-20">
+      <div className="bg-white rounded-lg mx-6 mt-6 py-10 px-8 mb-20">
         <h1 className="text-mine-shaft text-[24px] font-bold mb-10">Thông tin tài khoản</h1>
 
         <div>

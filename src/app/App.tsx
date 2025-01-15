@@ -3,6 +3,8 @@ import MainUserLayout from '@components/layouts/user/main-layout';
 import HomePage from '@components/pages/home-page/home-page';
 import LoginPage from '@components/pages/login-page/login-page';
 import AccountPage from '@components/pages/user/account/account-page';
+import OrderDetailPage from '@components/pages/user/order-detail-page/order-detail-page';
+import OrderPage from '@components/pages/user/orders/order-page';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
@@ -17,6 +19,8 @@ function App() {
 
       <Route element={<MainUserLayout/>}>
         <Route path="/account" index element={<AccountPage/>}/>
+        <Route path="/orders" element={<OrderPage/>}/>
+        <Route path="/orders/:id" element={<OrderDetailPage/>}/>
       </Route>
 
     </Routes>
