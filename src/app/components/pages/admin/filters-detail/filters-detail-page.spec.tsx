@@ -1,15 +1,15 @@
-import FiltersPage from './filters-page';
+import FiltersDetailPage from './filters-detail-page';
 import { render } from '@lib/tests';
 
-describe('FiltersPage Component', () => {
+describe('FiltersDetailPage Component', () => {
   it('should render', () => {
     const { container } = render(
-      <FiltersPage/>);
+      <FiltersDetailPage/>);
     expect(container).toBeTruthy();
   });
 
   it('should render with children and className', () => {
-    const { container } = render(<FiltersPage className="test"></FiltersPage>);
+    const { container } = render(<FiltersDetailPage className="test"></FiltersDetailPage>);
 
     expect(container.querySelector('.test')).toBeTruthy();
   });
