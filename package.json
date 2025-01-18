@@ -50,6 +50,8 @@
     "axios": "^1.6.7",
     "clsx": "^2.1.0",
     "dayjs": "^1.11.10",
+    "flowbite": "^2.5.2",
+    "flowbite-react": "^0.10.2",
     "history": "^5.3.0",
     "i18next": "^23.9.0",
     "i18next-browser-languagedetector": "^7.2.0",

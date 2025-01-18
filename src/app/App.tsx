@@ -1,6 +1,7 @@
 import MainAdminLayout from '@components/layouts/admin/main-user-layout/main-admin-layout';
 import MainLayout from '@components/layouts/main-layout';
 import MainUserLayout from '@components/layouts/user/main-user-layout';
+import CustomersPage from '@components/pages/admin/customers/customers-page';
 import AccountPage from '@components/pages/customer/account-page/account-page';
 import FilterReplacementSchedulePage from '@components/pages/customer/filter-replacement-schedule-page/filter-replacement-schedule-page';
 import HomePage from '@components/pages/customer/home-page/home-page';
@@ -29,7 +30,7 @@ function App() {
 
       {/** Admin */}
       <Route element={<MainAdminLayout/>}>
-        <Route path="/admin/customers" index element={<AccountPage/>}/>
+        <Route path="/admin/customers" index element={<CustomersPage/>}/>
       </Route>
 
       {/** 404 Page */}
