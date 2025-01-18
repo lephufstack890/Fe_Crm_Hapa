@@ -3,6 +3,8 @@ import MainLayout from '@components/layouts/main-layout';
 import MainUserLayout from '@components/layouts/user/main-user-layout';
 import CustomersPage from '@components/pages/admin/customers/customers-page';
 import FiltersPage from '@components/pages/admin/filters/filters-page';
+import FiltersCreatePage from '@components/pages/admin/filters-create-and-edit/filters-create-and-edit-page';
+import FiltersCreateAndEditPage from '@components/pages/admin/filters-create-and-edit/filters-create-and-edit-page';
 import FiltersDetailPage from '@components/pages/admin/filters-detail/filters-detail-page';
 import OrdersPage from '@components/pages/admin/orders/orders-page';
 import AccountPage from '@components/pages/customer/account-page/account-page';
@@ -37,6 +39,8 @@ function App() {
         <Route path="/admin/orders" index element={<OrdersPage/>}/>
         <Route path="/admin/filters" index element={<FiltersPage/>}/>
         <Route path="/admin/filters/:id" index element={<FiltersDetailPage/>}/>
+        <Route path="/admin/filters/:id/edit" index element={<FiltersCreateAndEditPage/>}/>
+        <Route path="/admin/filters/create" index element={<FiltersCreateAndEditPage/>}/>
       </Route>
 
       {/** 404 Page */}
