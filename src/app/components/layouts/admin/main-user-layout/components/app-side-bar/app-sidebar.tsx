@@ -2,66 +2,121 @@ import styles from './app-header.module.scss';
 import { AppSidebarProps } from './app-sidebar.types';
 import { withResourceBundle } from '@lib/i18n';
 import clsx from 'clsx';
+import { CustomFlowbiteTheme, Sidebar } from 'flowbite-react';
 import React from 'react';
+import { HiAnnotation, HiArrowSmRight, HiChartPie, HiHome, HiInbox, HiOutlineShoppingCart, HiShoppingBag, HiTable, HiUser } from 'react-icons/hi';
+import { IoSettingsSharp } from 'react-icons/io5';
 import { Link, NavLink } from 'react-router-dom';
+
+const customTheme: CustomFlowbiteTheme = {
+  root: {
+    base: 'h-full',
+    collapsed: {
+      on: 'w-16',
+      off: 'w-64',
+    },
+    inner: 'h-full text-white overflow-y-auto overflow-x-hidden rounded bg-[#263A53] px-3 py-4 dark:bg-[#263A53]',
+  },
+  collapse: {
+    button: 'group text-[13px] flex w-full items-center rounded-lg p-2 text-white font-normal transition duration-75 hover:bg-blue-600 dark:text-white dark:hover:bg-gray-700',
+    icon: {
+      base: 'h-6 w-6 text-white transition duration-75 group-hover:text-white dark:text-gray-400 dark:group-hover:text-white',
+      open: {
+        off: '',
+        on: 'text-white',
+      },
+    },
+    label: {
+      base: 'ml-3 flex-1 whitespace-nowrap text-left',
+      icon: {
+        base: 'h-6 w-6 transition delay-0 ease-in-out',
+        open: {
+          on: 'rotate-180',
+          off: '',
+        },
+      },
+    },
+    list: 'space-y-2 py-2',
+  },
+  cta: {
+    base: 'mt-6 rounded-lg bg-gray-100 p-4 dark:bg-gray-700',
+    color: {
+      blue: 'bg-cyan-50 dark:bg-cyan-900',
+      dark: 'bg-dark-50 dark:bg-dark-900',
+      failure: 'bg-red-50 dark:bg-red-900',
+      gray: 'bg-alternative-50 dark:bg-alternative-900',
+      green: 'bg-green-50 dark:bg-green-900',
+      light: 'bg-light-50 dark:bg-light-900',
+      red: 'bg-red-50 dark:bg-red-900',
+      purple: 'bg-purple-50 dark:bg-purple-900',
+      success: 'bg-green-50 dark:bg-green-900',
+      yellow: 'bg-yellow-50 dark:bg-yellow-900',
+      warning: 'bg-yellow-50 dark:bg-yellow-900',
+    },
+  },
+  item: {
+    base: 'flex text-[13px] items-center justify-center rounded-lg p-2 text-white font-normal hover:bg-blue-600 dark:text-white dark:hover:bg-gray-700',
+    active: 'bg-gray-100 dark:bg-gray-700',
+    collapsed: {
+      insideCollapse: 'group w-full pl-8 transition duration-75',
+      noIcon: 'font-bold',
+    },
+    content: {
+      base: 'flex-1 whitespace-nowrap px-3',
+    },
+    icon: {
+      base: 'h-6 w-6 flex-shrink-0 text-white transition duration-75 group-hover:text-blue-600 dark:text-gray-400 dark:group-hover:text-white',
+      active: 'text-gray-700 dark:text-gray-100',
+    },
+    label: '',
+    listItem: '',
+  },
+  items: {
+    base: '',
+  },
+  itemGroup: {
+    base: 'mt-4 space-y-2 border-t border-gray-200 pt-4 first:mt-0 first:border-t-0 first:pt-0 dark:border-gray-700',
+  },
+  logo: {
+    base: 'mb-5 flex items-center pl-2.5',
+    collapsed: {
+      on: 'hidden',
+      off: 'self-center whitespace-nowrap text-xl font-semibold dark:text-white',
+    },
+    img: 'mr-3 h-6 sm:h-7',
+  },
+};
 
 function AppSidebar() {
   return (
-    <div className="flex flex-col justify-between h-full">
+    <Sidebar className="h-screen !text-white !rounded-none max-w-full" theme={customTheme}>
+      <Sidebar.Items className="rounded-none">
+        <Sidebar.ItemGroup>
+          <Sidebar.Item href="#" icon={HiHome}>
+            Tổng quan
+          </Sidebar.Item>
+          <Sidebar.Item href="#" icon={HiOutlineShoppingCart}>
+            Đơn đặt hàng / Tickets
+          </Sidebar.Item>
+          <Sidebar.Item href="#" icon={HiAnnotation}>
+            Danh sách tin nhắn
+          </Sidebar.Item>
+          <Sidebar.Collapse icon={HiUser} label="Khách hàng">
+            <Sidebar.Item href="#">Lịch thay lõi định kỳ</Sidebar.Item>
+            <Sidebar.Item href="#">Lịch sử đơn hàng</Sidebar.Item>
+            <Sidebar.Item href="#">Danh sách khách hàng</Sidebar.Item>
+          </Sidebar.Collapse>
+          <Sidebar.Collapse icon={IoSettingsSharp} label="Cấu hình">
+            <Sidebar.Item href="#">Danh sách thiết bị</Sidebar.Item>
+            <Sidebar.Item href="#">Danh sách lõi lọc</Sidebar.Item>
+            <Sidebar.Item href="#">Cấu hình tin nhắn</Sidebar.Item>
+            <Sidebar.Item href="#">Quản lý kết nối API</Sidebar.Item>
+            <Sidebar.Item href="#">Nhật ký hoạt động</Sidebar.Item>
+          </Sidebar.Collapse>
+        </Sidebar.ItemGroup>
+      </Sidebar.Items>
+    </Sidebar>
 
-      <div className="flex-1">
-        <div className="flex items-center gap-x-2 mt-[80px] mb-5 px-4">
-          <div className="flex-1 ">
-            <div>Xin chào Quý khách</div>
-            <div className="font-semibold">Nguyễn Chí Toàn</div>
-          </div>
-
-          <div>
-            <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fillRule="evenodd" clipRule="evenodd" d="M7.7071 7.7071C7.51957 7.89457 7.26526 7.99989 7.0001 7.99989C6.73493 7.99989 6.48063 7.89457 6.2931 7.7071L0.636099 2.0501C0.540589 1.95785 0.464406 1.84751 0.411997 1.7255C0.359588 1.6035 0.332002 1.47228 0.330848 1.3395C0.329694 1.20672 0.354996 1.07504 0.405277 0.952145C0.455558 0.829249 0.529811 0.717596 0.623704 0.623704C0.717597 0.529811 0.829248 0.455558 0.952145 0.405277C1.07504 0.354996 1.20672 0.329694 1.3395 0.330848C1.47228 0.332002 1.6035 0.359588 1.7255 0.411997C1.84751 0.464406 1.95785 0.540588 2.0501 0.636098L7.0001 5.5861L11.9501 0.636098C12.1387 0.45394 12.3913 0.353146 12.6535 0.355424C12.9157 0.357703 13.1665 0.462872 13.3519 0.64828C13.5373 0.833688 13.6425 1.0845 13.6448 1.3467C13.6471 1.60889 13.5463 1.8615 13.3641 2.0501L7.7071 7.7071Z" fill="#333333"/>
-            </svg>
-          </div>
-        </div>
-
-        <div>
-          <NavLink
-            className={({ isActive }) =>
-              `p-4 flex items-center ${
-                isActive ? 'bg-[#F0F9FE] text-[#0076DC]' : 'text-mine-shaft hover:bg-[#F0F9FE] hover:text-[#0076DC]'
-              }`
-            }
-            to="/filter-replacement-schedule"
-          >
-            Thời gian thay lõi
-          </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              `p-4 flex items-center ${
-                isActive ? 'bg-[#F0F9FE] text-[#0076DC]' : 'text-mine-shaft hover:bg-[#F0F9FE] hover:text-[#0076DC]'
-              }`
-            }
-            to="/orders"
-          >
-            Lịch sử đơn hàng
-          </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              `p-4 flex items-center ${
-                isActive ? 'bg-[#F0F9FE] text-[#0076DC]' : 'text-mine-shaft hover:bg-[#F0F9FE] hover:text-[#0076DC]'
-              }`
-            }
-            to="/account"
-          >
-            Tài khoản của tôi
-          </NavLink>
-        </div>
-      </div>
-
-      <div className="mx-4 mb-4 bg-[#FFF8D4] p-3 rounded-md text-center">
-        <div>Tổng điểm tích lũy</div>
-        <div><span className="font-semibold">187.000</span> điểm</div>
-      </div>
-    </div>
   );
 }
 
