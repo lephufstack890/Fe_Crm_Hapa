@@ -2,6 +2,7 @@ import MainAdminLayout from '@components/layouts/admin/main-user-layout/main-adm
 import MainLayout from '@components/layouts/main-layout';
 import MainUserLayout from '@components/layouts/user/main-user-layout';
 import CustomersPage from '@components/pages/admin/customers/customers-page';
+import FiltersPage from '@components/pages/admin/filters/filters-page';
 import OrdersPage from '@components/pages/admin/orders/orders-page';
 import AccountPage from '@components/pages/customer/account-page/account-page';
 import FilterReplacementSchedulePage from '@components/pages/customer/filter-replacement-schedule-page/filter-replacement-schedule-page';
@@ -33,6 +34,7 @@ function App() {
       <Route element={<MainAdminLayout/>}>
         <Route path="/admin/customers" index element={<CustomersPage/>}/>
         <Route path="/admin/orders" index element={<OrdersPage/>}/>
+        <Route path="/admin/filters" index element={<FiltersPage/>}/>
       </Route>
 
       {/** 404 Page */}

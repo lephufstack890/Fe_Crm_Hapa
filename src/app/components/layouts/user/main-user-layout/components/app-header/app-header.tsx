@@ -13,7 +13,7 @@ function AppHeader(props: AppHeaderProps) {
   // const { isAuthenticated, user, initials, handleGoToHomeClick } = useAppHeaderViewModel(props);
 
   return (
-    <header className={'bg-white shadow-md p-4 sticky w-full top-0'} data-testid={testingID}>
+    <header className={'bg-white shadow-md p-4 sticky z-50 w-full top-0'} data-testid={testingID}>
       <div className="flex items-center justify-end">
 
         <div className="flex items-center gap-x-4 mr-8">

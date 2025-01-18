@@ -21,7 +21,7 @@ function OrdersPage() {
 
       <div className="bg-white mx-6 mt-6 py-6 mb-20">
         <div className="mb-6 font-bold border-b border-b-solid">
-          <div className="inline-block pl-[20px] pb-6 font-bold text-[14px] text-[#0076DC]  border-b border-b-solid border-b-[#0076DC]">Tất cả khách hàng</div>
+          <div className="inline-block pl-[20px] pb-6 font-bold text-[14px] text-[#0076DC]  border-b border-b-solid border-b-[#0076DC]">Tất cả đơn hàng</div>
         </div>
 
         {/* Tìm kiếm */}
