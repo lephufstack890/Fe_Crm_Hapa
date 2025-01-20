@@ -1,8 +1,132 @@
 import { DevicesPageProps } from './devices-page.types';
 import Page from '@components/elements/page';
 import { withResourceBundle } from '@lib/i18n';
-import { Checkbox, Table , Button } from 'flowbite-react';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { Box, Collapse, IconButton, Paper, TableHead, TableRow, Typography } from '@mui/material';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import { Button } from 'flowbite-react';
 import React from 'react';
+
+function createData(
+  image: string,
+  deviceName: string,
+  brand: string,
+  deviceID: string,
+  sum: number,
+  notes: string,
+) {
+  return {
+    image,
+    deviceName,
+    brand,
+    deviceID,
+    sum,
+    notes,
+    childrens: [
+      {
+        image: '',
+        filter_name: 'Máy Lọc Nước Đầu Nguồn 3M AP904',
+        brand: 'RYO Hyundai',
+        filter_code: 'RYO Sediment',
+        replacement_cycle: '6 tháng',
+        price: '280,000đ',
+      },
+      {
+        image: '',
+        filter_name: 'Máy Lọc Nước Đầu Nguồn 3M AP904',
+        brand: 'RYO Hyundai',
+        filter_code: 'RYO Sediment',
+        replacement_cycle: '6 tháng',
+        price: '280,000đ',
+      },
+    ],
+  };
+}
+
+function Row(props: { row: ReturnType<typeof createData> }) {
+  const { row } = props;
+  const [ open, setOpen ] = React.useState(false);
+
+  return (
+    <React.Fragment>
+      <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
+        <TableCell>
+          <IconButton
+            aria-label="expand row"
+            size="small"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <KeyboardArrowUpIcon/> : <KeyboardArrowDownIcon/>}
+          </IconButton>
+        </TableCell>
+        <TableCell component="th" scope="row">
+          {row.image}
+        </TableCell>
+        <TableCell>{row.deviceName}</TableCell>
+        <TableCell>{row.brand}</TableCell>
+        <TableCell>{row.deviceID}</TableCell>
+        <TableCell>{row.sum}</TableCell>
+        <TableCell>{row.notes}</TableCell>
+      </TableRow>
+      <TableRow className="bg-[#F0F9FE]">
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0, paddingLeft: '80px', paddingRight: '0' }} colSpan={8}>
+          <Collapse in={open} timeout="auto" unmountOnExit>
+            <Box sx={{ margin: 1 }}>
+              <Table size="small" aria-label="purchases">
+                <TableHead>
+                  <TableRow>
+                    <TableCell className="bg-white "></TableCell>
+                    <TableCell className="bg-white "><span className="text-mine-shaft font-semibold">Ảnh</span></TableCell>
+                    <TableCell className="bg-white "> <span className="text-mine-shaft font-semibold">Tên lõi lọc</span></TableCell>
+                    <TableCell className="bg-white">
+                      <span className="text-mine-shaft font-semibold">Thương hiệu</span>
+                    </TableCell>
+                    <TableCell className="bg-white">
+                      <span className="text-mine-shaft font-semibold">Mã lõi lọc</span>
+                    </TableCell>
+                    <TableCell className="bg-white">
+                      <span className="text-mine-shaft font-semibold">Chu kỳ thay thế</span>
+                    </TableCell>
+                    <TableCell className="bg-white">
+                      <span className="text-mine-shaft font-semibold">Giá bán</span>
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {row.childrens.map((item) => (
+                    <TableRow key={item.filter_code}>
+                      <TableCell className="bg-white"></TableCell>
+                      <TableCell component="th" scope="row" className="bg-white">
+                        {item.image}
+                      </TableCell>
+                      <TableCell className="bg-white">{item.filter_name}</TableCell>
+                      <TableCell className="bg-white">{item.brand}</TableCell>
+                      <TableCell className="bg-white">{item.filter_code}</TableCell>
+                      <TableCell className="bg-white">
+                        {item.replacement_cycle}
+                      </TableCell>
+                      <TableCell className="bg-white">
+                        {item.price}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </Box>
+          </Collapse>
+        </TableCell>
+      </TableRow>
+    </React.Fragment>
+  );
+}
+const rows = [
+  createData('','Máy Lọc Nước Đầu Nguồn 3M AP904', '3M', 'AP904', 25, ''),
+  createData('','Máy Lọc Nước Đầu Nguồn 3M AP904', '3M', 'AP904', 25, ''),
+];
 
 function DevicesPage() {
 
@@ -68,36 +192,36 @@ function DevicesPage() {
         </div>
 
         <div className="overflow-x-auto">
-          <Table hoverable>
-            <Table.Head>
-              <Table.HeadCell className="p-4 bg-[#E8EAEB]">
-                <Checkbox/>
-              </Table.HeadCell>
-              <Table.HeadCell className="bg-[#E8EAEB]">Mã khách hàng</Table.HeadCell>
-              <Table.HeadCell className="bg-[#E8EAEB]">Tên khách hàng</Table.HeadCell>
-              <Table.HeadCell className="bg-[#E8EAEB]">Số điện thoại</Table.HeadCell>
-              <Table.HeadCell className="bg-[#E8EAEB]">Điểm hiện tại</Table.HeadCell>
-              <Table.HeadCell className="bg-[#E8EAEB]">Tổng SL đơn hàng</Table.HeadCell>
-              <Table.HeadCell className="bg-[#E8EAEB]">Tổng chi tiêu</Table.HeadCell>
-              <Table.HeadCell className="bg-[#E8EAEB]">Giới tính</Table.HeadCell>
-            </Table.Head>
-            <Table.Body className="divide-y">
-              <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                <Table.Cell className="p-4">
-                  <Checkbox/>
-                </Table.Cell>
-                <Table.Cell className="whitespace-nowrap font-medium text-[#0076DC] dark:text-white">
-                  ABC
-                </Table.Cell>
-                <Table.Cell className="text-mine-shaft">ABC</Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
-              </Table.Row>
-            </Table.Body>
-          </Table>
+          <TableContainer component={Paper}>
+            <Table aria-label="collapsible table">
+              <TableHead className="bg-[#E8EAEB]">
+                <TableRow>
+                  <TableCell/>
+                  <TableCell><span className="text-mine-shaft font-semibold">Ảnh</span></TableCell>
+                  <TableCell>
+                    <span className="text-mine-shaft font-semibold">Tên thiết bị</span>
+                  </TableCell>
+                  <TableCell>
+                    <span className="text-mine-shaft font-semibold">Thương hiệu</span>
+                  </TableCell>
+                  <TableCell>
+                    <span className="text-mine-shaft font-semibold">Mã thiết bị</span>
+                  </TableCell>
+                  <TableCell>
+                    <span className="text-mine-shaft font-semibold">Tổng lượt sử dụng</span>
+                  </TableCell>
+                  <TableCell>
+                    <span className="text-mine-shaft font-semibold">Ghi chú</span>
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {rows.map((row) => (
+                  <Row key={row.deviceID} row={row}/>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </div>
       </div>
 
