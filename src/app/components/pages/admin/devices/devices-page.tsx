@@ -75,7 +75,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
       <TableRow className="bg-[#F0F9FE]">
         <TableCell style={{ paddingBottom: 0, paddingTop: 0, paddingLeft: '60px', paddingRight: '0' }} colSpan={8}>
           <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box sx={{ margin: 1 }}>
+            <Box sx={{ margin: 1, margrinLeft: 0, marginRight: 0 }}>
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
