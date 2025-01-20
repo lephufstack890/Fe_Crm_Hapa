@@ -1,8 +1,9 @@
+import React from 'react';
 import { FiltersPageProps } from './filters-page.types';
 import Page from '@components/elements/page';
 import { withResourceBundle } from '@lib/i18n';
 import { Checkbox, Table , Button, Dropdown } from 'flowbite-react';
-import React from 'react';
+import { Link } from 'react-router-dom';
 
 function FiltersPage() {
 
@@ -190,7 +191,7 @@ function FiltersPage() {
                     />
                   </Table.Cell>
                   <Table.Cell className="whitespace-nowrap font-medium text-[#0076DC] dark:text-white">
-                    {item.name}
+                    <Link to={`/admin/filters/123`}>{item.name}</Link>
                   </Table.Cell>
                   <Table.Cell>{item.brand}</Table.Cell>
                   <Table.Cell>{item.code}</Table.Cell>

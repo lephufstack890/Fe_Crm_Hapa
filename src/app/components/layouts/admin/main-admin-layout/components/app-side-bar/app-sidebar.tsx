@@ -1,19 +1,16 @@
-import styles from './app-header.module.scss';
-import { AppSidebarProps } from './app-sidebar.types';
 import { withResourceBundle } from '@lib/i18n';
-import clsx from 'clsx';
 import { CustomFlowbiteTheme, Sidebar } from 'flowbite-react';
 import React from 'react';
-import { HiAnnotation, HiArrowSmRight, HiChartPie, HiHome, HiInbox, HiOutlineShoppingCart, HiShoppingBag, HiTable, HiUser } from 'react-icons/hi';
+import { HiAnnotation, HiHome, HiOutlineShoppingCart, HiUser } from 'react-icons/hi';
 import { IoSettingsSharp } from 'react-icons/io5';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const customTheme: CustomFlowbiteTheme = {
   root: {
-    base: 'h-full',
+    base: 'text-[18px] h-full',
     collapsed: {
       on: 'w-16',
-      off: 'w-64',
+      off: 'w-100',
     },
     inner: 'h-full text-white overflow-y-auto overflow-x-hidden rounded bg-[#263A53] px-3 py-4 dark:bg-[#263A53]',
   },
@@ -27,7 +24,7 @@ const customTheme: CustomFlowbiteTheme = {
       },
     },
     label: {
-      base: 'ml-3 flex-1 whitespace-nowrap text-left',
+      base: 'ml-3 flex-1 whitespace-nowrap text-left text-[18px]',
       icon: {
         base: 'h-6 w-6 transition delay-0 ease-in-out',
         open: {
@@ -55,14 +52,14 @@ const customTheme: CustomFlowbiteTheme = {
     },
   },
   item: {
-    base: 'flex text-[13px] items-center justify-center rounded-lg p-2 text-white font-normal hover:bg-blue-600 dark:text-white dark:hover:bg-gray-700',
+    base: 'flex text-[18px] items-center justify-center rounded-lg p-2 text-white font-normal hover:bg-blue-600 dark:text-white dark:hover:bg-gray-700',
     active: 'bg-gray-100 dark:bg-gray-700',
     collapsed: {
       insideCollapse: 'group w-full pl-8 transition duration-75',
       noIcon: 'font-bold',
     },
     content: {
-      base: 'flex-1 whitespace-nowrap px-3',
+      base: 'flex-1 whitespace-nowrap px-3 text-[18px]',
     },
     icon: {
       base: 'h-6 w-6 flex-shrink-0 text-white transition duration-75 group-hover:text-blue-600 dark:text-gray-400 dark:group-hover:text-white',
@@ -75,7 +72,7 @@ const customTheme: CustomFlowbiteTheme = {
     base: '',
   },
   itemGroup: {
-    base: 'mt-4 space-y-2 border-t border-gray-200 pt-4 first:mt-0 first:border-t-0 first:pt-0 dark:border-gray-700',
+    base: 'mt-4 space-y-2 border-t border-gray-200 pt-4 first:mt-0 first:border-t-0 first:pt-0 dark:border-gray-700 text-[18px]',
   },
   logo: {
     base: 'mb-5 flex items-center pl-2.5',
@@ -96,7 +93,7 @@ function AppSidebar() {
             Tổng quan
           </Sidebar.Item>
           <Sidebar.Item href="#" icon={HiOutlineShoppingCart}>
-            Đơn đặt hàng / Tickets
+            <Link className="w-100 block" to="/admin/orders">Đơn đặt hàng / Tickets</Link>
           </Sidebar.Item>
           <Sidebar.Item href="#" icon={HiAnnotation}>
             Danh sách tin nhắn
@@ -104,11 +101,11 @@ function AppSidebar() {
           <Sidebar.Collapse icon={HiUser} label="Khách hàng">
             <Sidebar.Item href="#">Lịch thay lõi định kỳ</Sidebar.Item>
             <Sidebar.Item href="#">Lịch sử đơn hàng</Sidebar.Item>
-            <Sidebar.Item href="#">Danh sách khách hàng</Sidebar.Item>
+            <Sidebar.Item href="#"><Link className="w-100 block" to="/admin/customers">Danh sách khách hàng</Link></Sidebar.Item>
           </Sidebar.Collapse>
           <Sidebar.Collapse icon={IoSettingsSharp} label="Cấu hình">
             <Sidebar.Item href="#">Danh sách thiết bị</Sidebar.Item>
-            <Sidebar.Item href="#">Danh sách lõi lọc</Sidebar.Item>
+            <Sidebar.Item href="#"><Link className="w-100 block" to="/admin/filters">Danh sách lõi lọc</Link></Sidebar.Item>
             <Sidebar.Item href="#">Cấu hình tin nhắn</Sidebar.Item>
             <Sidebar.Item href="#">Quản lý kết nối API</Sidebar.Item>
             <Sidebar.Item href="#">Nhật ký hoạt động</Sidebar.Item>

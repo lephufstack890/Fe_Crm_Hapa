@@ -1,23 +1,23 @@
-import MainUserLayout from './index';
+import MainCustomerLayout from './index';
 import { render } from '@lib/tests';
 
-describe('MainUserLayout Component', () => {
+describe('MainCustomerLayout Component', () => {
   it('should render', () => {
     const { container } = render(
-      <MainUserLayout/>);
+      <MainCustomerLayout/>);
     expect(container).toBeTruthy();
   });
 
   it('should render with children', () => {
-    const { getByText } = render(<MainUserLayout>
+    const { getByText } = render(<MainCustomerLayout>
       <div>Test</div>
-    </MainUserLayout>);
+    </MainCustomerLayout>);
 
     expect(getByText('Test')).toBeInTheDocument();
   });
 
   it('should render with children and className', () => {
-    const { container } = render(<MainUserLayout className="test">Test</MainUserLayout>);
+    const { container } = render(<MainCustomerLayout className="test">Test</MainCustomerLayout>);
 
     expect(container.querySelector('.test')).toBeTruthy();
   });

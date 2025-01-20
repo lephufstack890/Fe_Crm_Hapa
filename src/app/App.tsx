@@ -1,9 +1,7 @@
-import MainAdminLayout from '@components/layouts/admin/main-user-layout/main-admin-layout';
-import MainLayout from '@components/layouts/main-layout';
-import MainUserLayout from '@components/layouts/user/main-user-layout';
+import MainAdminLayout from '@components/layouts/admin/main-admin-layout/main-admin-layout';
 import CustomersPage from '@components/pages/admin/customers/customers-page';
+import MainCustomerLayout from '@components/layouts/customer/main-customer-layout';
 import FiltersPage from '@components/pages/admin/filters/filters-page';
-import FiltersCreatePage from '@components/pages/admin/filters-create-and-edit/filters-create-and-edit-page';
 import FiltersCreateAndEditPage from '@components/pages/admin/filters-create-and-edit/filters-create-and-edit-page';
 import FiltersDetailPage from '@components/pages/admin/filters-detail/filters-detail-page';
 import OrdersPage from '@components/pages/admin/orders/orders-page';
@@ -19,14 +17,10 @@ import { Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <Routes>
-
-      <Route element={<MainLayout/>}>
+      {/** Customer */}
+      <Route element={<MainCustomerLayout/>}>
         <Route index element={<HomePage/>}/>
         <Route path="/login" element={<LoginPage/>}/>
-      </Route>
-
-      {/** Customer */}
-      <Route element={<MainUserLayout/>}>
         <Route path="/account" index element={<AccountPage/>}/>
         <Route path="/orders" element={<OrderPage/>}/>
         <Route path="/orders/:id" element={<OrderDetailPage/>}/>
