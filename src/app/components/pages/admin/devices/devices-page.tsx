@@ -73,7 +73,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
         <TableCell>{row.notes}</TableCell>
       </TableRow>
       <TableRow className="bg-[#F0F9FE]">
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0, paddingLeft: '80px', paddingRight: '0' }} colSpan={8}>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0, paddingLeft: '60px', paddingRight: '0' }} colSpan={8}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
               <Table size="small" aria-label="purchases">
