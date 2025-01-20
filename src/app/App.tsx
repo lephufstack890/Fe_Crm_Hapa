@@ -1,6 +1,7 @@
 import MainAdminLayout from '@components/layouts/admin/main-admin-layout/main-admin-layout';
-import CustomersPage from '@components/pages/admin/customers/customers-page';
 import MainCustomerLayout from '@components/layouts/customer/main-customer-layout';
+import CustomersPage from '@components/pages/admin/customers/customers-page';
+import DevicesPage from '@components/pages/admin/devices/devices-page';
 import FiltersPage from '@components/pages/admin/filters/filters-page';
 import FiltersCreateAndEditPage from '@components/pages/admin/filters-create-and-edit/filters-create-and-edit-page';
 import FiltersDetailPage from '@components/pages/admin/filters-detail/filters-detail-page';
@@ -31,10 +32,12 @@ function App() {
       <Route element={<MainAdminLayout/>}>
         <Route path="/admin/customers" index element={<CustomersPage/>}/>
         <Route path="/admin/orders" index element={<OrdersPage/>}/>
+        <Route path="/admin/devices" index element={<DevicesPage/>}/>
         <Route path="/admin/filters" index element={<FiltersPage/>}/>
         <Route path="/admin/filters/:id" index element={<FiltersDetailPage/>}/>
         <Route path="/admin/filters/:id/edit" index element={<FiltersCreateAndEditPage/>}/>
         <Route path="/admin/filters/create" index element={<FiltersCreateAndEditPage/>}/>
+
       </Route>
 
       {/** 404 Page */}
