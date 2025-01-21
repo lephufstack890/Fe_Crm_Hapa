@@ -22,7 +22,7 @@ function LoginsPage() {
           className="w-[60%] mb-8"
         />
 
-        <div className="bg-white shadow-lg rounded-lg p-6 w-full text-center w-[40%]">
+        <div className="bg-white shadow-lg rounded-lg p-6 text-center w-[40%]">
           <h1 className="text-xl font-semibold mb-4">Quản lý cửa hàng (Tenant)</h1>
           <button
             className="flex items-center justify-center w-full py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition"
