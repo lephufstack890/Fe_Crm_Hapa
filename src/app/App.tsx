@@ -3,6 +3,7 @@ import MainCustomerLayout from '@components/layouts/customer/main-customer-layou
 import CustomersPage from '@components/pages/admin/customers/customers-page';
 import DevicesPage from '@components/pages/admin/devices/devices-page';
 import FiltersPage from '@components/pages/admin/filters/filters-page';
+import LoginsPage from '@components/pages/admin/login-page/login-page';
 import FiltersCreateAndEditPage from '@components/pages/admin/filters-create-and-edit/filters-create-and-edit-page';
 import FiltersDetailPage from '@components/pages/admin/filters-detail/filters-detail-page';
 import OrdersPage from '@components/pages/admin/orders/orders-page';
@@ -29,6 +30,7 @@ function App() {
       </Route>
 
       {/** Admin */}
+        <Route path="/admin/login" index element={<LoginsPage />}/>
       <Route element={<MainAdminLayout/>}>
         <Route path="/admin/customers" index element={<CustomersPage/>}/>
         <Route path="/admin/orders" index element={<OrdersPage/>}/>

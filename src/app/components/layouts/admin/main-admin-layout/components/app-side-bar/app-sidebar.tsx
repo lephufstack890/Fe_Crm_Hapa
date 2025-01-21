@@ -99,12 +99,12 @@ function AppSidebar() {
             Danh sách tin nhắn
           </Sidebar.Item>
           <Sidebar.Collapse icon={HiUser} label="Khách hàng">
-            <Sidebar.Item href="#">Lịch thay lõi định kỳ</Sidebar.Item>
+            <Sidebar.Item href="#">Lịch chăm sóc định kỳ</Sidebar.Item>
             <Sidebar.Item href="#">Lịch sử đơn hàng</Sidebar.Item>
             <Sidebar.Item href="#"><Link className="w-100 block" to="/admin/customers">Danh sách khách hàng</Link></Sidebar.Item>
           </Sidebar.Collapse>
           <Sidebar.Collapse icon={IoSettingsSharp} label="Cấu hình">
-            <Sidebar.Item href="#">Danh sách thiết bị</Sidebar.Item>
+            <Sidebar.Item href="#"><Link className="w-100 block" to="/admin/devices">Danh sách thiết bị</Link></Sidebar.Item>
             <Sidebar.Item href="#"><Link className="w-100 block" to="/admin/filters">Danh sách lõi lọc</Link></Sidebar.Item>
             <Sidebar.Item href="#">Cấu hình tin nhắn</Sidebar.Item>
             <Sidebar.Item href="#">Quản lý kết nối API</Sidebar.Item>
