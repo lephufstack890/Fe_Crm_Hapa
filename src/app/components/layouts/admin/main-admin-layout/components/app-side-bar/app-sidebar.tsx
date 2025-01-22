@@ -106,8 +106,8 @@ function AppSidebar() {
             <Sidebar.Item href="#"><Link className="w-100 block" to="/admin/customers">Danh sách khách hàng</Link></Sidebar.Item>
           </Sidebar.Collapse>
           <Sidebar.Collapse icon={IoSettingsSharp} label="Cấu hình">
-            <Sidebar.Item href="#"><Link className="w-100 block" to="/admin/devices">Danh sách thiết bị</Link></Sidebar.Item>
-            <Sidebar.Item href="#"><Link className="w-100 block" to="/admin/filters">Danh sách lõi lọc</Link></Sidebar.Item>
+            <Sidebar.Item href="#"><Link className="w-100 block" to="/admin/cycle-objects">Sản phẩm chu kỳ</Link></Sidebar.Item>
+            <Sidebar.Item href="#"><Link className="w-100 block" to="/admin/filters">Sản phẩm gốc</Link></Sidebar.Item>
             <Sidebar.Item href="#">Cấu hình tin nhắn</Sidebar.Item>
             <Sidebar.Item href="#">Quản lý kết nối API</Sidebar.Item>
             <Sidebar.Item href="#">Nhật ký hoạt động</Sidebar.Item>

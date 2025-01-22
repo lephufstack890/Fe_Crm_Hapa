@@ -15,6 +15,8 @@ import OrderDetailPage from '@components/pages/customer/order-detail-page/order-
 import OrderPage from '@components/pages/customer/orders-page/order-page';
 import NotFoundPage from '@components/pages/not-found-page/not-found-page';
 import { Routes, Route } from 'react-router-dom';
+import CustomerDetailPage from '@components/pages/admin/customer-detail/customer-detail-page';
+import CycleObjectsPage from '@components/pages/admin/cycle-objects/cycle-objects-page';
 
 function App() {
   return (
@@ -33,8 +35,9 @@ function App() {
         <Route path="/admin/login" index element={<LoginsPage />}/>
       <Route element={<MainAdminLayout/>}>
         <Route path="/admin/customers" index element={<CustomersPage/>}/>
+        <Route path="/admin/customers/:id" index element={<CustomerDetailPage/>}/>
         <Route path="/admin/orders" index element={<OrdersPage/>}/>
-        <Route path="/admin/devices" index element={<DevicesPage/>}/>
+        <Route path="/admin/cycle-objects" index element={<CycleObjectsPage/>}/>
         <Route path="/admin/filters" index element={<FiltersPage/>}/>
         <Route path="/admin/filters/:id" index element={<FiltersDetailPage/>}/>
         <Route path="/admin/filters/:id/edit" index element={<FiltersCreateAndEditPage/>}/>

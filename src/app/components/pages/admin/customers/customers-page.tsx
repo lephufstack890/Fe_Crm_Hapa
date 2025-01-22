@@ -3,6 +3,7 @@ import Page from '@components/elements/page';
 import { withResourceBundle } from '@lib/i18n';
 import { Checkbox, Table , Button } from 'flowbite-react';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function CustomersPage() {
 
@@ -79,14 +80,56 @@ function CustomersPage() {
                   <Checkbox/>
                 </Table.Cell>
                 <Table.Cell className="whitespace-nowrap font-medium text-[#0076DC] dark:text-white">
+                  <Link to="/admin/customers/1">ABC</Link>
+                </Table.Cell>
+                <Table.Cell className="text-mine-shaft">ABC</Table.Cell>
+                <Table.Cell>0916743545</Table.Cell>
+                <Table.Cell>100đ</Table.Cell>
+                <Table.Cell>2</Table.Cell>
+                <Table.Cell>16</Table.Cell>
+                <Table.Cell>Nam</Table.Cell>
+              </Table.Row>
+              <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                <Table.Cell className="p-4">
+                  <Checkbox/>
+                </Table.Cell>
+                <Table.Cell className="whitespace-nowrap font-medium text-[#0076DC] dark:text-white">
+                  ABC
+                </Table.Cell>
+                <Table.Cell className="text-mine-shaft"><Link to="/admin/customers/1">ABC</Link></Table.Cell>
+                <Table.Cell>0916743545</Table.Cell>
+                <Table.Cell>100đ</Table.Cell>
+                <Table.Cell>2</Table.Cell>
+                <Table.Cell>16</Table.Cell>
+                <Table.Cell>Nam</Table.Cell>
+              </Table.Row>
+              <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                <Table.Cell className="p-4">
+                  <Checkbox/>
+                </Table.Cell>
+                <Table.Cell className="whitespace-nowrap font-medium text-[#0076DC] dark:text-white">
+                  ABC
+                </Table.Cell>
+                <Table.Cell className="text-mine-shaft"><Link to="/admin/customers/1">ABC</Link></Table.Cell>
+                <Table.Cell>0916743545</Table.Cell>
+                <Table.Cell>100đ</Table.Cell>
+                <Table.Cell>2</Table.Cell>
+                <Table.Cell>16</Table.Cell>
+                <Table.Cell>Nam</Table.Cell>
+              </Table.Row>
+              <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                <Table.Cell className="p-4">
+                  <Checkbox/>
+                </Table.Cell>
+                <Table.Cell className="whitespace-nowrap font-medium text-[#0076DC] dark:text-white">
                   ABC
                 </Table.Cell>
                 <Table.Cell className="text-mine-shaft">ABC</Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
+                <Table.Cell>0916743545</Table.Cell>
+                <Table.Cell>100đ</Table.Cell>
+                <Table.Cell>2</Table.Cell>
+                <Table.Cell>16</Table.Cell>
+                <Table.Cell>Nam</Table.Cell>
               </Table.Row>
             </Table.Body>
           </Table>
