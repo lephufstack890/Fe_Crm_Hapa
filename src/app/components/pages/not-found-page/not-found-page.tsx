@@ -3,7 +3,7 @@ import Page from '@components/elements/page';
 import { withResourceBundle } from '@lib/i18n';
 import React from 'react';
 
-function NotFoundPage() {
+function NotFoundPage({ className, styles }: NotFoundPageProps) {
 
   return (
     <Page>

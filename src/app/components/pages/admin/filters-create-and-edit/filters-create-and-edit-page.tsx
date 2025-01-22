@@ -4,7 +4,7 @@ import { withResourceBundle } from '@lib/i18n';
 import { Checkbox, Table , Button, Dropdown } from 'flowbite-react';
 import React, { useState } from 'react';
 
-function FiltersCreateAndEditPage() {
+function FiltersCreateAndEditPage({ className }: FiltersCreateAndEditPageProps) {
 
   const [ formData, setFormData ] = useState({
     name: '',
@@ -17,17 +17,17 @@ function FiltersCreateAndEditPage() {
     image: null,
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleImageUpload = (e) => {
+  const handleImageUpload = (e: any) => {
     const file = e.target.files[0];
     setFormData({ ...formData, image: file });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     console.log(formData);
   };

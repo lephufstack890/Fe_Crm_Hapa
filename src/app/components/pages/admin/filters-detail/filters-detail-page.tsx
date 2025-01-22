@@ -1,10 +1,10 @@
-import { FiltersDetailPageProps } from './filters-detail-page.types';
+import { FiltersDetailProps } from './filters-detail-page.types';
 import Page from '@components/elements/page';
 import { withResourceBundle } from '@lib/i18n';
-import { Checkbox, Table , Button, Dropdown } from 'flowbite-react';
+import { Table  } from 'flowbite-react';
 import React from 'react';
 
-function FiltersDetailPage() {
+function FiltersDetailPage({ className }: FiltersDetailProps) {
 
   const dataList = [
     {

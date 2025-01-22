@@ -5,7 +5,7 @@ import { withResourceBundle } from '@lib/i18n';
 import { Checkbox, Table , Button, Dropdown } from 'flowbite-react';
 import { Link } from 'react-router-dom';
 
-function FiltersPage() {
+function FiltersPage({ className } : FiltersPageProps) {
 
   const dataList = [
     {

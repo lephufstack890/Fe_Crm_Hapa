@@ -4,7 +4,7 @@ import { withResourceBundle } from '@lib/i18n';
 import { Checkbox, Table , Button } from 'flowbite-react';
 import React from 'react';
 
-function OrdersPage() {
+function OrdersPage({ className }: OrdersPageProps) {
 
   return (
     <Page>

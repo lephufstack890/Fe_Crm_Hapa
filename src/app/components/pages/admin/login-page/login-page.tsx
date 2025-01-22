@@ -3,8 +3,9 @@ import Logo from '@assets/images/login/logo.png'
 import Background1 from '@assets/images/login/bg-1.png'
 import Icon from '@assets/images/login/icon-gg.jpg'
 import { withResourceBundle } from '@lib/i18n';
+import { LoginsPageProps } from './login-page.types';
 
-function LoginsPage() {
+function LoginsPage({ className }: LoginsPageProps) {
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="w-full bg-blue-900 py-4 px-6 flex justify-between items-center">

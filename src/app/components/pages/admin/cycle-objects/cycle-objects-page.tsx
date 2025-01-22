@@ -4,8 +4,9 @@ import { Checkbox } from '@mui/material';
 import { Button, Table } from 'flowbite-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { CycleObjectsPageProps } from './cycle-objects-page.types';
 
-function CycleObjectsPage() {
+function CycleObjectsPage({ className }: CycleObjectsPageProps) {
   const productData = [
     {
       image: "https://kinghome.vn/data/products/may-loc-nuoc-ro-nong-lanh-10-loi-sunhouse-shr76210ck-141572591172.jpg",

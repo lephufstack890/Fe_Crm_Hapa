@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-function MainAdminLayout() {
+function MainAdminLayout({  }) {
 
   return (
     <div className={clsx('bg-[#F3F5F7] h-screen')}>

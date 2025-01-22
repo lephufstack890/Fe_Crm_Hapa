@@ -4,7 +4,7 @@ import { withResourceBundle } from '@lib/i18n';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-function OrderDetailPage() {
+function OrderDetailPage({ className, styles }: OrderDetailPageProps) {
 
   const navigate = useNavigate();
 

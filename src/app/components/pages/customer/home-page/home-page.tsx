@@ -1,8 +1,9 @@
 import Page from '@components/elements/page';
 import { withResourceBundle } from '@lib/i18n';
 import React from 'react';
+import { HomePageProps } from './home-page.types';
 
-function HomePage() {
+function HomePage({ className }: HomePageProps) {
   return (
     <Page>
 

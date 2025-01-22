@@ -128,7 +128,7 @@ const rows = [
   createData('','Máy Lọc Nước Đầu Nguồn 3M AP904', '3M', 'AP904', 25, ''),
 ];
 
-function DevicesPage() {
+function DevicesPage({ className }: DevicesPageProps) {
 
   return (
     <Page>

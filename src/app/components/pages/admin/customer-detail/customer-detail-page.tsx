@@ -4,7 +4,7 @@ import { withResourceBundle } from '@lib/i18n';
 import { Checkbox, Table , Button, Dropdown } from 'flowbite-react';
 import React, { useState } from 'react';
 
-function CustomerDetailPage() {
+function CustomerDetailPage({ className }: CustomerDetailPageProps) {
   const [activeTab, setActiveTab] = useState("orders");
 
   return (

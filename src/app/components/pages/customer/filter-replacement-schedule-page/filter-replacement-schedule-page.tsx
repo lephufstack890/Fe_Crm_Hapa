@@ -4,7 +4,7 @@ import { withResourceBundle } from '@lib/i18n';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function FilterReplacementSchedulePage() {
+function FilterReplacementSchedulePage({ className }: FilterReplacementSchedulePageProps) {
 
   const data = [
     {
