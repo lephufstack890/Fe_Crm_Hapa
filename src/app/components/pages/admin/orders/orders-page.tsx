@@ -1,10 +1,39 @@
 import { OrdersPageProps } from './orders-page.types';
 import Page from '@components/elements/page';
 import { withResourceBundle } from '@lib/i18n';
-import { Checkbox, Table , Button } from 'flowbite-react';
+import { Checkbox, Table, Button } from 'flowbite-react';
 import React from 'react';
 
 function OrdersPage({ className }: OrdersPageProps) {
+  const fakeData = [
+    {
+      orderId: 'ORD001',
+      createdDate: '2025-01-22 10:00',
+      customerName: 'Nguyễn Văn A',
+      totalAmount: '500,000 VND',
+      salesSource: 'Online',
+      shippingPartner: 'Viettel Post',
+      status: 'Thành công',
+    },
+    {
+      orderId: 'ORD002',
+      createdDate: '2025-01-21 14:30',
+      customerName: 'Trần Thị B',
+      totalAmount: '250,000 VND',
+      salesSource: 'In-store',
+      shippingPartner: 'Giao Hàng Nhanh',
+      status: 'Thất bại',
+    },
+    {
+      orderId: 'ORD003',
+      createdDate: '2025-01-20 09:15',
+      customerName: 'Lê Minh C',
+      totalAmount: '800,000 VND',
+      salesSource: 'Online',
+      shippingPartner: 'Bưu Điện',
+      status: 'Chưa gửi',
+    },
+  ];
 
   return (
     <Page>
@@ -74,50 +103,24 @@ function OrdersPage({ className }: OrdersPageProps) {
               <Table.HeadCell className="bg-[#E8EAEB]">Trạng thái gửi tập tin</Table.HeadCell>
             </Table.Head>
             <Table.Body className="divide-y">
-              <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                <Table.Cell className="p-4">
-                  <Checkbox/>
-                </Table.Cell>
-                <Table.Cell className="whitespace-nowrap font-medium text-[#0076DC] dark:text-white">
-                  ABC
-                </Table.Cell>
-                <Table.Cell className="text-mine-shaft">ABC</Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell className="text-[#00CB77]">Thành công</Table.Cell>
-              </Table.Row>
-
-              <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                <Table.Cell className="p-4">
-                  <Checkbox/>
-                </Table.Cell>
-                <Table.Cell className="whitespace-nowrap font-medium text-[#0076DC] dark:text-white">
-                  ABC
-                </Table.Cell>
-                <Table.Cell className="text-mine-shaft">ABC</Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell className="text-[#FF0041]">Thất bại</Table.Cell>
-              </Table.Row>
-
-              <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                <Table.Cell className="p-4">
-                  <Checkbox/>
-                </Table.Cell>
-                <Table.Cell className="whitespace-nowrap font-medium text-[#0076DC] dark:text-white">
-                  ABC
-                </Table.Cell>
-                <Table.Cell className="text-mine-shaft">ABC</Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell className="text-mine-shaft">Chưa gửi</Table.Cell>
-              </Table.Row>
+              {fakeData.map((order, index) => (
+                <Table.Row key={index} className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                  <Table.Cell className="p-4">
+                    <Checkbox/>
+                  </Table.Cell>
+                  <Table.Cell className="whitespace-nowrap font-medium text-[#0076DC] dark:text-white">
+                    {order.orderId}
+                  </Table.Cell>
+                  <Table.Cell className="text-mine-shaft">{order.createdDate}</Table.Cell>
+                  <Table.Cell>{order.customerName}</Table.Cell>
+                  <Table.Cell>{order.totalAmount}</Table.Cell>
+                  <Table.Cell>{order.salesSource}</Table.Cell>
+                  <Table.Cell>{order.shippingPartner}</Table.Cell>
+                  <Table.Cell className={`text-${order.status === 'Thành công' ? 'green-400' : order.status === 'Thất bại' ? 'red-400' : 'gray-400'}`}>
+                    {order.status}
+                  </Table.Cell>
+                </Table.Row>
+              ))}
             </Table.Body>
           </Table>
         </div>
@@ -127,4 +130,4 @@ function OrdersPage({ className }: OrdersPageProps) {
   );
 }
 
-export default React.memo(withResourceBundle( OrdersPage , () => import('./translations')));
+export default React.memo(withResourceBundle(OrdersPage, () => import('./translations')));

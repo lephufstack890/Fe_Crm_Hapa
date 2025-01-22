@@ -95,14 +95,14 @@ function AppSidebar() {
             Tổng quan
           </Sidebar.Item>
           <Sidebar.Item href="#" icon={HiOutlineShoppingCart}>
-            <Link className="w-100 block" to="/admin/orders">Đơn đặt hàng / Tickets</Link>
+            (Vận hàng và CSKH)
           </Sidebar.Item>
           <Sidebar.Item href="#" icon={HiAnnotation}>
             Danh sách tin nhắn
           </Sidebar.Item>
           <Sidebar.Collapse icon={HiUser} label="Khách hàng">
             <Sidebar.Item href="#">Lịch chăm sóc định kỳ</Sidebar.Item>
-            <Sidebar.Item href="#">Lịch sử đơn hàng</Sidebar.Item>
+            <Sidebar.Item href="#"><Link className="w-100 block" to="/admin/orders">Lịch sử đơn hàng</Link></Sidebar.Item>
             <Sidebar.Item href="#"><Link className="w-100 block" to="/admin/customers">Danh sách khách hàng</Link></Sidebar.Item>
           </Sidebar.Collapse>
           <Sidebar.Collapse icon={IoSettingsSharp} label="Cấu hình">

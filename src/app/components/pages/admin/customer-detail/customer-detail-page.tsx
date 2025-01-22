@@ -3,6 +3,8 @@ import Page from '@components/elements/page';
 import { withResourceBundle } from '@lib/i18n';
 import { Checkbox, Table , Button, Dropdown } from 'flowbite-react';
 import React, { useState } from 'react';
+import Orders from './components/orders';
+import Address from './components/address';
 
 function CustomerDetailPage({ className }: CustomerDetailPageProps) {
   const [activeTab, setActiveTab] = useState("orders");
@@ -140,16 +142,10 @@ function CustomerDetailPage({ className }: CustomerDetailPageProps) {
         </div>
         <div className="p-6">
           {activeTab === "orders" && (
-            <div>
-              <h4 className="font-bold text-lg mb-4">Thông tin Đơn hàng</h4>
-              <p>Danh sách đơn hàng sẽ hiển thị ở đây.</p>
-            </div>
+            <Orders />
           )}
           {activeTab === "address" && (
-            <div>
-              <h4 className="font-bold text-lg mb-4">Thông tin Địa chỉ</h4>
-              <p>Thông tin địa chỉ khách hàng sẽ hiển thị ở đây.</p>
-            </div>
+            <Address />
           )}
         </div>
       </div>
