@@ -3,6 +3,7 @@ import AppSideBar from './components/app-side-bar';
 import clsx from 'clsx';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import { MainAdminLayoutProps } from './main-admin-layout.types';
 
 const MainAdminLayout : React.FC<MainAdminLayoutProps> = ({ className, styles }) {
 
