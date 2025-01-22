@@ -1,11 +1,11 @@
 import AppHeader from './components/app-header';
 import AppSideBar from './components/app-side-bar';
+import { MainCustomerLayoutProps } from './main-customer-layout.types';
 import clsx from 'clsx';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-function MainUserLayout() {
-
+const MainUserLayout: React.FC<MainCustomerLayoutProps> = ({ className, styles }) => {
   return (
     <div className={clsx('bg-[#F3F5F7] h-screen')}>
       <div className="grid grid-cols-11 h-full">
@@ -24,6 +24,6 @@ function MainUserLayout() {
       </div>
     </div>
   );
-}
+};
 
 export default React.memo(MainUserLayout);

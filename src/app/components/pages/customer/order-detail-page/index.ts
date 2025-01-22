@@ -1,1 +1,1 @@
-export type { LoginPageProps } from './order-detail-page.types';
+export type { OrderDetailPageProps } from './order-detail-page.types';

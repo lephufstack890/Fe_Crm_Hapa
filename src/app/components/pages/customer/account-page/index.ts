@@ -1,1 +1,1 @@
-export type { LoginPageProps } from './account-page.types';
+export type { AccountPageProps } from './account-page.types';

@@ -1,10 +1,11 @@
-import React from 'react';
+import { AppSidebarProps } from './app-sidebar.types';
+import Logo from '@assets/images/login/logo.png';
 import { withResourceBundle } from '@lib/i18n';
 import { CustomFlowbiteTheme, Sidebar } from 'flowbite-react';
+import React from 'react';
 import { HiAnnotation, HiHome, HiOutlineShoppingCart, HiUser } from 'react-icons/hi';
 import { IoSettingsSharp } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
-import Logo from '@assets/images/login/logo.png'
 
 const customTheme: CustomFlowbiteTheme = {
   root: {
@@ -85,10 +86,10 @@ const customTheme: CustomFlowbiteTheme = {
   },
 };
 
-function AppSidebar() {
+const AppSidebar: React.FC<AppSidebarProps> = ({ className, styles }) => {
   return (
     <Sidebar className="h-screen !text-white !rounded-none max-w-full" theme={customTheme}>
-      <img src={Logo} alt="Logo HAPA.VN" className="w-full" />
+      <img src={Logo} alt="Logo HAPA.VN" className="w-full"/>
       <Sidebar.Items className="rounded-none mt-10">
         <Sidebar.ItemGroup>
           <Sidebar.Item href="#" icon={HiHome}>
@@ -117,6 +118,6 @@ function AppSidebar() {
     </Sidebar>
 
   );
-}
+};
 
 export default React.memo(withResourceBundle( AppSidebar , () => import('./translations')));
