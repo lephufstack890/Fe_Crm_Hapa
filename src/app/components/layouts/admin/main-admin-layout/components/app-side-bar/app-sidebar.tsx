@@ -7,7 +7,7 @@ import { HiAnnotation, HiHome, HiOutlineShoppingCart, HiUser } from 'react-icons
 import { IoSettingsSharp } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 
-const customTheme: CustomFlowbiteTheme = {
+const customTheme = {
   root: {
     base: 'text-[18px] h-full',
     collapsed: {

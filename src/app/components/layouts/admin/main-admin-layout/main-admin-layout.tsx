@@ -1,12 +1,11 @@
 import AppHeader from './components/app-header';
 import AppSideBar from './components/app-side-bar';
+import { MainAdminLayoutProps } from './main-admin-layout.types';
 import clsx from 'clsx';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { MainAdminLayoutProps } from './main-admin-layout.types';
 
-const MainAdminLayout : React.FC<MainAdminLayoutProps> = ({ className, styles }) {
-
+const MainAdminLayout: React.FC<MainAdminLayoutProps> = ({ className, styles }) => {
   return (
     <div className={clsx('bg-[#F3F5F7] h-screen')}>
       <div className="grid grid-cols-11 h-full">
@@ -25,6 +24,6 @@ const MainAdminLayout : React.FC<MainAdminLayoutProps> = ({ className, styles })
       </div>
     </div>
   );
-}
+};
 
 export default React.memo(MainAdminLayout);
