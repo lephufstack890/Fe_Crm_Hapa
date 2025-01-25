@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
-function AppSidebar() {
+const AppSidebar: React.FC<AppSidebarProps> = ({ className, styles }) => {
   return (
     <div className="flex flex-col justify-between h-full">
 
@@ -63,6 +63,6 @@ function AppSidebar() {
       </div>
     </div>
   );
-}
+};
 
 export default React.memo(withResourceBundle( AppSidebar , () => import('./translations')));

@@ -1,1 +1,1 @@
-export type { FiltersPageProps } from './filters-detail-page.types';
+export type { FiltersDetailProps } from './filters-detail-page.types';
