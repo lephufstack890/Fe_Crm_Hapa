@@ -10,6 +10,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import { Button } from 'flowbite-react';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function createData(
   image: string,
@@ -29,18 +30,18 @@ function createData(
     childrens: [
       {
         image: '',
-        filter_name: 'Máy Lọc Nước Đầu Nguồn 3M AP904',
+        product_life_cycle_name: 'Máy Lọc Nước Đầu Nguồn 3M AP904',
         brand: 'RYO Hyundai',
-        filter_code: 'RYO Sediment',
-        replacement_cycle: '6 tháng',
+        sku_code: 'RYO Sediment',
+        care_cycle: '6 tháng',
         price: '280,000đ',
       },
       {
         image: '',
-        filter_name: 'Máy Lọc Nước Đầu Nguồn 3M AP904',
+        product_life_cycle_name: 'Máy Lọc Nước Đầu Nguồn 3M AP904',
         brand: 'RYO Hyundai',
-        filter_code: 'RYO Sediment',
-        replacement_cycle: '6 tháng',
+        sku_code: 'RYO Sediment',
+        care_cycle: '6 tháng',
         price: '280,000đ',
       },
     ],
@@ -75,7 +76,9 @@ function Row(props: { row: ReturnType<typeof createData> }) {
         <TableCell component="th" scope="row">
           {row.image}
         </TableCell>
-        <TableCell>{row.deviceName}</TableCell>
+        <TableCell>
+          <Link to={`${row.deviceID}`} className="text-[#0076DC]">{row.deviceName}</Link>
+        </TableCell>
         <TableCell>{row.brand}</TableCell>
         <TableCell>{row.deviceID}</TableCell>
         <TableCell>{row.sum}</TableCell>
@@ -90,15 +93,15 @@ function Row(props: { row: ReturnType<typeof createData> }) {
                   <TableRow>
                     <TableCell className="bg-white "></TableCell>
                     <TableCell className="bg-white "><span className="text-mine-shaft font-semibold">Ảnh</span></TableCell>
-                    <TableCell className="bg-white "> <span className="text-mine-shaft font-semibold">Tên lõi lọc</span></TableCell>
+                    <TableCell className="bg-white "> <span className="text-mine-shaft font-semibold">Sản phẩm chu kỳ</span></TableCell>
                     <TableCell className="bg-white">
                       <span className="text-mine-shaft font-semibold">Thương hiệu</span>
                     </TableCell>
                     <TableCell className="bg-white">
-                      <span className="text-mine-shaft font-semibold">Mã lõi lọc</span>
+                      <span className="text-mine-shaft font-semibold">Mã SKU</span>
                     </TableCell>
                     <TableCell className="bg-white">
-                      <span className="text-mine-shaft font-semibold">Chu kỳ thay thế</span>
+                      <span className="text-mine-shaft font-semibold">Chu kỳ chăm sóc</span>
                     </TableCell>
                     <TableCell className="bg-white">
                       <span className="text-mine-shaft font-semibold">Giá bán</span>
@@ -107,16 +110,18 @@ function Row(props: { row: ReturnType<typeof createData> }) {
                 </TableHead>
                 <TableBody>
                   {row.childrens.map((item) => (
-                    <TableRow key={item.filter_code}>
+                    <TableRow key={item.sku_code}>
                       <TableCell className="bg-white"></TableCell>
                       <TableCell component="th" scope="row" className="bg-white">
                         {item.image}
                       </TableCell>
-                      <TableCell className="bg-white">{item.filter_name}</TableCell>
-                      <TableCell className="bg-white">{item.brand}</TableCell>
-                      <TableCell className="bg-white">{item.filter_code}</TableCell>
                       <TableCell className="bg-white">
-                        {item.replacement_cycle}
+                        <Link to={`${item.sku_code}`} className="text-[#0076DC]"> {item.product_life_cycle_name}</Link>
+                      </TableCell>
+                      <TableCell className="bg-white">{item.brand}</TableCell>
+                      <TableCell className="bg-white">{item.sku_code}</TableCell>
+                      <TableCell className="bg-white">
+                        {item.care_cycle}
                       </TableCell>
                       <TableCell className="bg-white">
                         {item.price}
@@ -208,13 +213,13 @@ function OriginalProductPage({ className }: OriginalProductsPageProps) {
                   <TableCell/>
                   <TableCell><span className="text-mine-shaft font-semibold">Ảnh</span></TableCell>
                   <TableCell>
-                    <span className="text-mine-shaft font-semibold">Tên thiết bị</span>
+                    <span className="text-mine-shaft font-semibold">Sản phẩm gốc</span>
                   </TableCell>
                   <TableCell>
                     <span className="text-mine-shaft font-semibold">Thương hiệu</span>
                   </TableCell>
                   <TableCell>
-                    <span className="text-mine-shaft font-semibold">Mã thiết bị</span>
+                    <span className="text-mine-shaft font-semibold">Mã SKU</span>
                   </TableCell>
                   <TableCell>
                     <span className="text-mine-shaft font-semibold">Tổng lượt sử dụng</span>
