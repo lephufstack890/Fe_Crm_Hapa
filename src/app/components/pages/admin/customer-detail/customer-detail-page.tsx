@@ -41,31 +41,6 @@ function CustomerDetailPage({ className }: CustomerDetailPageProps) {
                 <span className="w-2/3 text-gray-800">---</span>
               </div>
             </div>
-
-            {/* <div>
-              <h6 className="text-sm font-bold text-gray-500 mb-4">Thông tin thành viên</h6>
-              <div className="flex mb-2">
-                <span className="w-1/3 text-gray-500 font-medium">Điểm hiện tại:</span>
-                <span className="w-2/3 text-gray-800">187,000</span>
-              </div>
-              <div className="flex mb-2">
-                <span className="w-1/3 text-gray-500 font-medium">Hạng thẻ:</span>
-                <span className="w-2/3 text-gray-800">VIP-SD</span>
-              </div>
-              <div className="flex mb-2">
-                <span className="w-1/3 text-gray-500 font-medium">Tổng SL đơn:</span>
-                <span className="w-2/3 text-gray-800">3</span>
-              </div>
-              <div className="flex mb-2">
-                <span className="w-1/3 text-gray-500 font-medium">Tổng chi tiêu:</span>
-                <span className="w-2/3 text-gray-800">37,400,000</span>
-              </div>
-              <div className="flex mb-2">
-                <span className="w-1/3 text-gray-500 font-medium">Lần mua cuối:</span>
-                <span className="w-2/3 text-gray-800">20/11/2024</span>
-              </div>
-            </div> */}
-
             <div>
               <div className="flex mb-2">
                 <span className="w-1/2 text-gray-500 font-medium">Mã khách hàng:</span>
@@ -77,7 +52,7 @@ function CustomerDetailPage({ className }: CustomerDetailPageProps) {
               </div>
               <div className="flex mb-2">
                 <span className="w-1/2 text-gray-500 font-medium">Nhận tin nhắn:</span>
-                <span className="w-1/2 text-gray-800">BẬT</span>
+                <span className="text-[#00CB77] px-4 border border-[#82FCD1] rounded rounded-xl">BẬT</span>
               </div>
               <div className="flex mb-2">
                 <span className="w-1/2 text-gray-500 font-medium">Mô tả:</span>
