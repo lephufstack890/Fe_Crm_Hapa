@@ -92,26 +92,26 @@ const AppSidebar: React.FC<AppSidebarProps> = ({ className, styles }) => {
       <img src={Logo} alt="Logo HAPA.VN" className="w-full"/>
       <Sidebar.Items className="rounded-none mt-10">
         <Sidebar.ItemGroup>
-          <Sidebar.Item href="#" icon={HiHome}>
+          <Sidebar.Item icon={HiHome}>
             Tổng quan
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiOutlineShoppingCart}>
+          <Sidebar.Item icon={HiOutlineShoppingCart}>
             (Vận hàng và CSKH)
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiAnnotation}>
+          <Sidebar.Item icon={HiAnnotation}>
             Danh sách tin nhắn
           </Sidebar.Item>
           <Sidebar.Collapse icon={HiUser} label="Khách hàng">
-            <Sidebar.Item href="#">Lịch chăm sóc định kỳ</Sidebar.Item>
-            <Sidebar.Item href="#"><Link className="w-100 block" to="/admin/orders">Lịch sử đơn hàng</Link></Sidebar.Item>
-            <Sidebar.Item href="#"><Link className="w-100 block" to="/admin/customers">Danh sách khách hàng</Link></Sidebar.Item>
+            <Sidebar.Item>Lịch chăm sóc định kỳ</Sidebar.Item>
+            <Sidebar.Item><Link className="w-100 block" to="/admin/orders">Lịch sử đơn hàng</Link></Sidebar.Item>
+            <Sidebar.Item><Link className="w-100 block" to="/admin/customers">Danh sách khách hàng</Link></Sidebar.Item>
           </Sidebar.Collapse>
           <Sidebar.Collapse icon={IoSettingsSharp} label="Cấu hình">
-            <Sidebar.Item href="#"><Link className="w-100 block" to="/admin/cycle-objects">Sản phẩm chu kỳ</Link></Sidebar.Item>
-            <Sidebar.Item href="#"><Link className="w-100 block" to="/admin/filters">Sản phẩm gốc</Link></Sidebar.Item>
-            <Sidebar.Item href="#">Cấu hình tin nhắn</Sidebar.Item>
-            <Sidebar.Item href="#">Quản lý kết nối API</Sidebar.Item>
-            <Sidebar.Item href="#">Nhật ký hoạt động</Sidebar.Item>
+            <Sidebar.Item><Link className="w-100 block" to="/admin/cycle-objects">Sản phẩm chu kỳ</Link></Sidebar.Item>
+            <Sidebar.Item><Link className="w-100 block" to="/admin/original-products">Sản phẩm gốc</Link></Sidebar.Item>
+            <Sidebar.Item><Link className="w-100 block" to="">Cấu hình tin nhắn</Link></Sidebar.Item>
+            <Sidebar.Item>Quản lý kết nối API</Sidebar.Item>
+            <Sidebar.Item>Nhật ký hoạt động</Sidebar.Item>
           </Sidebar.Collapse>
         </Sidebar.ItemGroup>
       </Sidebar.Items>
