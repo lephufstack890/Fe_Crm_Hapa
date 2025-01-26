@@ -169,13 +169,13 @@ function DevicesPage({ className }: DevicesPageProps) {
             <input
               type="text"
               placeholder="Tìm theo tên thiết bị, mã thiết bị"
-              className="w-full text-gray-700 focus:outline-none bg-transparent"
+              className="w-full text-gray-700 focus:outline-none bg-transparent border-none outline-none focus:border-none shadow-none"
             />
           </div>
 
           {/* Thương hiệu */}
           <div className="border-r px-1 border-r-solid">
-            <select name="Thương hiệu" id="" className="text-mine-shaft outline-none border-none">
+            <select name="Thương hiệu" id="" className="text-mine-shaft outline-none border-none shadow-none">
               <option value="1">Thương hiệu 1</option>
               <option value="1">Thương hiệu 2</option>
               <option value="1">Thương hiệu 3</option>

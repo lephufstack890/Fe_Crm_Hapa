@@ -74,7 +74,7 @@ function OrdersPage({ className }: OrdersPageProps) {
             <input
               type="text"
               placeholder="Tìm theo mã đơn hàng, tên, số điện thoại người nhận"
-              className="w-full text-gray-700 focus:outline-none bg-transparent"
+              className="w-full text-gray-700 focus:outline-none bg-transparent border-none outline-none focus:border-none shadow-none"
             />
           </div>
 

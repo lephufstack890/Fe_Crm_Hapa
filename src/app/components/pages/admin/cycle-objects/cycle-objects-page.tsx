@@ -1,42 +1,42 @@
+import { CycleObjectsPageProps } from './cycle-objects-page.types';
 import Page from '@components/elements/page';
 import { withResourceBundle } from '@lib/i18n';
 import { Checkbox } from '@mui/material';
 import { Button, Table } from 'flowbite-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CycleObjectsPageProps } from './cycle-objects-page.types';
 
 function CycleObjectsPage({ className }: CycleObjectsPageProps) {
   const productData = [
     {
-      image: "https://kinghome.vn/data/products/may-loc-nuoc-ro-nong-lanh-10-loi-sunhouse-shr76210ck-141572591172.jpg",
-      productName: "Máy lọc nước 3M AP904",
-      brand: "3M",
-      sku: "AP904",
-      careCycle: "24 tháng",
-      price: "12,000,000đ",
+      image: 'https://kinghome.vn/data/products/may-loc-nuoc-ro-nong-lanh-10-loi-sunhouse-shr76210ck-141572591172.jpg',
+      productName: 'Máy lọc nước 3M AP904',
+      brand: '3M',
+      sku: 'AP904',
+      careCycle: '24 tháng',
+      price: '12,000,000đ',
       usageCount: 10,
-      notes: "Hiệu suất cao, phù hợp dùng lâu dài",
+      notes: 'Hiệu suất cao, phù hợp dùng lâu dài',
     },
     {
-      image: "https://kinghome.vn/data/products/may-loc-nuoc-ro-nong-lanh-10-loi-sunhouse-shr76210ck-141572591172.jpg",
-      productName: "Máy lọc nước Sunhouse SHR-76210CK",
-      brand: "Sunhouse",
-      sku: "SHR76210CK",
-      careCycle: "12 tháng",
-      price: "8,000,000đ",
+      image: 'https://kinghome.vn/data/products/may-loc-nuoc-ro-nong-lanh-10-loi-sunhouse-shr76210ck-141572591172.jpg',
+      productName: 'Máy lọc nước Sunhouse SHR-76210CK',
+      brand: 'Sunhouse',
+      sku: 'SHR76210CK',
+      careCycle: '12 tháng',
+      price: '8,000,000đ',
       usageCount: 5,
-      notes: "Sử dụng công nghệ lọc hiện đại, tiết kiệm điện",
+      notes: 'Sử dụng công nghệ lọc hiện đại, tiết kiệm điện',
     },
     {
-      image: "https://kinghome.vn/data/products/may-loc-nuoc-ro-nong-lanh-10-loi-sunhouse-shr76210ck-141572591172.jpg",
-      productName: "Máy lọc nước Karofi K9",
-      brand: "Karofi",
-      sku: "K9",
-      careCycle: "18 tháng",
-      price: "10,000,000đ",
+      image: 'https://kinghome.vn/data/products/may-loc-nuoc-ro-nong-lanh-10-loi-sunhouse-shr76210ck-141572591172.jpg',
+      productName: 'Máy lọc nước Karofi K9',
+      brand: 'Karofi',
+      sku: 'K9',
+      careCycle: '18 tháng',
+      price: '10,000,000đ',
       usageCount: 7,
-      notes: "Chất lượng cao, bảo hành dài hạn",
+      notes: 'Chất lượng cao, bảo hành dài hạn',
     },
   ];
 
@@ -79,7 +79,7 @@ function CycleObjectsPage({ className }: CycleObjectsPageProps) {
             <input
               type="text"
               placeholder="Tìm theo tên sản phẩm, mã sản phẩm"
-              className="w-full text-gray-700 focus:outline-none bg-transparent"
+              className="w-full text-gray-700 focus:outline-none bg-transparent border-none outline-none focus:border-none shadow-none"
             />
           </div>
 

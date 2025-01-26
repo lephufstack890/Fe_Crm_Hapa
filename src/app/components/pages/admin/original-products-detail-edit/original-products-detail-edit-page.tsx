@@ -224,7 +224,7 @@ function OriginalProductsDetailEditPage({ className }: OriginalProductsDetailEdi
             <input
               type="text"
               placeholder="Tìm theo tên Sản phẩm chu kỳ, Mã SKU"
-              className="w-full text-gray-700 focus:outline-none bg-transparent"
+              className="w-full text-gray-700 focus:outline-none bg-transparent border-none outline-none focus:border-none shadow-none"
             />
           </div>
 

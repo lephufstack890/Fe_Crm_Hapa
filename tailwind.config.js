@@ -1,8 +1,10 @@
+const { Flowbite } = require('flowbite-react');
 const defaultTheme = require('tailwindcss/defaultTheme');
+const flowbite = require("flowbite-react/tailwind");
 
 module.exports = {
   mode: 'jit',
-  content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html',   flowbite.content(),],
   darkMode: 'media',
   theme: {
     extend: {
@@ -20,5 +22,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [require('@tailwindcss/typography'), flowbite.plugin(),],
 };

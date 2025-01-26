@@ -76,7 +76,7 @@ function CustomersPage({ className }: CustomersPageProps) {
 
           {/* Input tìm kiếm */}
           <div className="border-r px-1 border-r-solid flex-1">
-            <input type="text" placeholder="Tìm theo mã khách hàng, tên, số điện thoại" className="w-full text-gray-700 focus:outline-none bg-transparent"/>
+            <input type="text" placeholder="Tìm theo mã khách hàng, tên, số điện thoại" className="w-full text-gray-700 focus:outline-none bg-transparent border-none outline-none focus:border-none"/>
           </div>
 
           {/* Bộ lọc khác */}
@@ -92,7 +92,7 @@ function CustomersPage({ className }: CustomersPageProps) {
           <Table hoverable>
             <Table.Head>
               <Table.HeadCell className="p-4 bg-[#E8EAEB]">
-                <Checkbox />
+                <Checkbox/>
               </Table.HeadCell>
               <Table.HeadCell className="bg-[#E8EAEB]">Mã khách hàng</Table.HeadCell>
               <Table.HeadCell className="bg-[#E8EAEB]">Tên khách hàng</Table.HeadCell>
@@ -106,7 +106,7 @@ function CustomersPage({ className }: CustomersPageProps) {
               {customers.map((customer) => (
                 <Table.Row key={customer.id} className="bg-white dark:border-gray-700 dark:bg-gray-800">
                   <Table.Cell className="p-4">
-                    <Checkbox />
+                    <Checkbox/>
                   </Table.Cell>
                   <Table.Cell className="whitespace-nowrap font-medium text-[#0076DC] dark:text-white">
                     <Link to={`/admin/customers/${customer.id}`}>{customer.code}</Link>

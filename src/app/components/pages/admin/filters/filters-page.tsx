@@ -1,11 +1,11 @@
-import React from 'react';
 import { FiltersPageProps } from './filters-page.types';
 import Page from '@components/elements/page';
 import { withResourceBundle } from '@lib/i18n';
 import { Checkbox, Table , Button, Dropdown } from 'flowbite-react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-function FiltersPage({ className } : FiltersPageProps) {
+function FiltersPage({ className }: FiltersPageProps) {
 
   const dataList = [
     {
@@ -137,13 +137,13 @@ function FiltersPage({ className } : FiltersPageProps) {
             <input
               type="text"
               placeholder="Tìm theo tên lõi lọc, mã lõi lọc"
-              className="w-full text-gray-700 focus:outline-none bg-transparent"
+              className="w-full text-gray-700 focus:outline-none bg-transparent border-none outline-none focus:border-none shadow-none"
             />
           </div>
 
           {/* Thương hiệu */}
           <div className="border-r px-1 border-r-solid">
-            <select name="Thương hiệu" id="" className="text-mine-shaft outline-none border-none">
+            <select name="Thương hiệu" id="" className="text-mine-shaft outline-none border-none shadow-none">
               <option value="1">Thương hiệu 1</option>
               <option value="1">Thương hiệu 2</option>
               <option value="1">Thương hiệu 3</option>
@@ -191,7 +191,7 @@ function FiltersPage({ className } : FiltersPageProps) {
                     />
                   </Table.Cell>
                   <Table.Cell className="whitespace-nowrap font-medium text-[#0076DC] dark:text-white">
-                    <Link to={`/admin/filters/123`}>{item.name}</Link>
+                    <Link to={'/admin/filters/123'}>{item.name}</Link>
                   </Table.Cell>
                   <Table.Cell>{item.brand}</Table.Cell>
                   <Table.Cell>{item.code}</Table.Cell>
