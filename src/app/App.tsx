@@ -10,7 +10,9 @@ import FiltersDetailPage from '@components/pages/admin/filters-detail/filters-de
 import LoginsPage from '@components/pages/admin/login-page/login-page';
 import OrdersPage from '@components/pages/admin/orders/orders-page';
 import OriginalProductsPage from '@components/pages/admin/original-products/original-products-page';
+import OriginalProductsCreatePage from '@components/pages/admin/original-products-create/original-products-create-page';
 import OriginalProductsDetailPage from '@components/pages/admin/original-products-detail/original-products-detail-page';
+import OriginalProductsDetailEditPage from '@components/pages/admin/original-products-detail-edit/original-products-detail-edit-page';
 import AccountPage from '@components/pages/customer/account-page/account-page';
 import FilterReplacementSchedulePage from '@components/pages/customer/filter-replacement-schedule-page/filter-replacement-schedule-page';
 import HomePage from '@components/pages/customer/home-page/home-page';
@@ -44,6 +46,8 @@ function App() {
         {/** các page liên quan đến sản phẩm gốc */}
         <Route path="/admin/original-products" element={<OriginalProductsPage/>}/>
         <Route path="/admin/original-products/:id" element={<OriginalProductsDetailPage/>}/>
+        <Route path="/admin/original-products/:id/edit" element={<OriginalProductsDetailEditPage/>}/>
+        <Route path="/admin/original-products/create" element={<OriginalProductsCreatePage/>}/>
 
         {/** page tạm thời không dùng */}
         <Route path="/admin/filters" element={<FiltersPage/>}/>
