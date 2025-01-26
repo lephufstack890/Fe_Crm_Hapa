@@ -192,7 +192,7 @@ function OriginalProductsDetailEditPage({ className }: OriginalProductsDetailEdi
       </div>
 
       {/* Bảng */}
-      <div className="bg-white mx-6 mt-6 py-6 mb-20">
+      <div className="bg-white mx-6 mt-6 py-6 mb-6">
         {/* Tabs */}
         <div className="mb-6 font-bold border-b border-b-solid">
           <button
@@ -200,6 +200,33 @@ function OriginalProductsDetailEditPage({ className }: OriginalProductsDetailEdi
           >
             Thành phẩm sản phẩm chu kỳ
           </button>
+
+        </div>
+
+        {/* Tìm kiếm */}
+        <div className="flex mx-[20px] max-w-[650px] gap-x-1 mb-6 items-center border border-gray-300 px-3 py-2 ">
+          {/* Icon tìm kiếm */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5 text-gray-400"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M12.9 14.32a8 8 0 111.414-1.414l3.387 3.387a1 1 0 01-1.414 1.414l-3.387-3.387zM8 14a6 6 0 100-12 6 6 0 000 12z"
+              clipRule="evenodd"
+            />
+          </svg>
+
+          {/* Input tìm kiếm */}
+          <div className="flex-1">
+            <input
+              type="text"
+              placeholder="Tìm theo tên Sản phẩm chu kỳ, Mã SKU"
+              className="w-full text-gray-700 focus:outline-none bg-transparent"
+            />
+          </div>
 
         </div>
 
@@ -282,6 +309,56 @@ function OriginalProductsDetailEditPage({ className }: OriginalProductsDetailEdi
           </Table>
 
         </div>
+      </div>
+
+      {/** Mô tả */}
+      <div className="grid grid-cols-10 gap-x-[30px] mx-6">
+
+        {/* Mô tả sản phẩm gốc */}
+        <div className="bg-white py-[15px] col-span-7">
+          <div className="px-[20px] pb-[15px] mb-[15px] border-b border-solid border-b-[#E8EAEB] text-[14px] font-semibold text-[#333]">Mô tả sản phẩm gốc</div>
+
+        </div>
+
+        {/* Thông tin bổ sung */}
+        <div className="bg-white py-[15px] col-span-3">
+          <div className="px-[20px] pb-[15px] mb-[15px] border-b border-solid border-b-[#E8EAEB] text-[14px] font-semibold text-[#333]">Thông tin bổ sung</div>
+
+          <form className="px-[20px]">
+            <div className="mb-6">
+              <label
+                htmlFor="note"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Ghi chú
+              </label>
+              <input
+                type="text"
+                id="note"
+                name="note"
+                placeholder=""
+                className="outline-none p-3 mt-1 block w-full border border-solid"
+              />
+            </div>
+
+            <div className="mb-6">
+              <label
+                htmlFor="tag"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Tags
+              </label>
+              <input
+                type="text"
+                id="tag"
+                name="tag"
+                placeholder=""
+                className="outline-none p-3 mt-1 block w-full border border-solid"
+              />
+            </div>
+          </form>
+        </div>
+
       </div>
 
     </Page>
