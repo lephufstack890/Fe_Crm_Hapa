@@ -1,169 +1,210 @@
-import { OriginalProductsCreatePageProps } from './original-products-create-page.types';
+import { OriginalProductsDetailCreatePageProps } from './original-products-detail-edit-page.types';
 import Page from '@components/elements/page';
 import { withResourceBundle } from '@lib/i18n';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { Box, Collapse, IconButton, Paper, TableHead, TableRow, Typography } from '@mui/material';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import { Button } from 'flowbite-react';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Table } from 'flowbite-react';
+import React, { useState } from 'react';
 
-function createData(
-  image: string,
-  deviceName: string,
-  brand: string,
-  deviceID: string,
-  sum: number,
-  notes: string,
-) {
-  return {
-    image,
-    deviceName,
-    brand,
-    deviceID,
-    sum,
-    notes,
-    childrens: [
-      {
-        image: '',
-        product_life_cycle_name: 'Máy Lọc Nước Đầu Nguồn 3M AP904',
-        brand: 'RYO Hyundai',
-        sku_code: 'RYO Sediment',
-        care_cycle: '6 tháng',
-        price: '280,000đ',
-      },
-      {
-        image: '',
-        product_life_cycle_name: 'Máy Lọc Nước Đầu Nguồn 3M AP904',
-        brand: 'RYO Hyundai',
-        sku_code: 'RYO Sediment',
-        care_cycle: '6 tháng',
-        price: '280,000đ',
-      },
-    ],
+function OriginalProductsDetailCreatePage({ className }: OriginalProductsDetailCreatePageProps) {
+
+  const [ formData, setFormData ] = useState({
+    name: '',
+    sku: '',
+    linkWebsite: '',
+    type: '',
+    brand: '',
+    image: null,
+  });
+
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
-}
 
-function Row(props: { row: ReturnType<typeof createData> }) {
-  const { row } = props;
-  const [ open, setOpen ] = React.useState(false);
+  const handleImageUpload = (e: any) => {
+    const file = e.target.files[0];
+    setFormData({ ...formData, image: file });
+  };
 
-  return (
-    <React.Fragment>
-      <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
-        <TableCell>
-          <IconButton
-            aria-label="expand row"
-            size="small"
-            onClick={() => setOpen(!open)}
-          >
-            {open ?
-              <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fillRule="evenodd" clipRule="evenodd" d="M12 9.99984L6 15.9998L0 9.99984L1.41 8.58984L6 13.1698L10.59 8.58984L12 9.99984ZM12 1.99984L6 7.99984L0 1.99984L1.41 0.589844L6 5.16984L10.59 0.589844L12 1.99984Z" fill="#0076DC"/>
-              </svg>
-              :
-              <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fillRule="evenodd" clipRule="evenodd" d="M10.0001 0L16.0001 6L10.0001 12L8.59009 10.59L13.1701 6L8.59009 1.41L10.0001 0ZM2.00009 0L8.00009 6L2.00009 12L0.590088 10.59L5.17009 6L0.590088 1.41L2.00009 0Z" fill="#999999"/>
-              </svg>
-
-            }
-          </IconButton>
-        </TableCell>
-        <TableCell component="th" scope="row">
-          {row.image}
-        </TableCell>
-        <TableCell>
-          <Link to={`${row.deviceID}`} className="text-[#0076DC]">{row.deviceName}</Link>
-        </TableCell>
-        <TableCell>{row.brand}</TableCell>
-        <TableCell>{row.deviceID}</TableCell>
-        <TableCell>{row.sum}</TableCell>
-        <TableCell>{row.notes}</TableCell>
-      </TableRow>
-      <TableRow className="bg-[#F0F9FE]">
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0, paddingLeft: '60px', paddingRight: '0' }} colSpan={8}>
-          <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box sx={{ margin: 1, margrinLeft: 0, marginRight: 0 }}>
-              <Table size="small" aria-label="purchases">
-                <TableHead>
-                  <TableRow>
-                    <TableCell className="bg-white "></TableCell>
-                    <TableCell className="bg-white "><span className="text-mine-shaft font-semibold">Ảnh</span></TableCell>
-                    <TableCell className="bg-white "> <span className="text-mine-shaft font-semibold">Sản phẩm chu kỳ</span></TableCell>
-                    <TableCell className="bg-white">
-                      <span className="text-mine-shaft font-semibold">Thương hiệu</span>
-                    </TableCell>
-                    <TableCell className="bg-white">
-                      <span className="text-mine-shaft font-semibold">Mã SKU</span>
-                    </TableCell>
-                    <TableCell className="bg-white">
-                      <span className="text-mine-shaft font-semibold">Chu kỳ chăm sóc</span>
-                    </TableCell>
-                    <TableCell className="bg-white">
-                      <span className="text-mine-shaft font-semibold">Giá bán</span>
-                    </TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {row.childrens.map((item) => (
-                    <TableRow key={item.sku_code}>
-                      <TableCell className="bg-white"></TableCell>
-                      <TableCell component="th" scope="row" className="bg-white">
-                        {item.image}
-                      </TableCell>
-                      <TableCell className="bg-white">
-                        <Link to={`${item.sku_code}`} className="text-[#0076DC]"> {item.product_life_cycle_name}</Link>
-                      </TableCell>
-                      <TableCell className="bg-white">{item.brand}</TableCell>
-                      <TableCell className="bg-white">{item.sku_code}</TableCell>
-                      <TableCell className="bg-white">
-                        {item.care_cycle}
-                      </TableCell>
-                      <TableCell className="bg-white">
-                        {item.price}
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </Box>
-          </Collapse>
-        </TableCell>
-      </TableRow>
-    </React.Fragment>
-  );
-}
-const rows = [
-  createData('','Máy Lọc Nước Đầu Nguồn 3M AP904', '3M', 'AP904', 25, ''),
-  createData('','Máy Lọc Nước Đầu Nguồn 3M AP904', '3M', 'AP904', 25, ''),
-];
-
-function OriginalProductsCreatePage({ className }: OriginalProductsCreatePageProps) {
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    console.log(formData);
+  };
 
   return (
     <Page>
-      {/* Nút Tạo thiết bị */}
-      <div className="flex justify-end mt-6 mx-6">
-        <Button color="blue" className="bg-[#0076DC] flex items-center">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fillRule="evenodd" clipRule="evenodd" d="M14 8H8V14H6V8H0V6H6V0H8V6H14V8Z" fill="white"/>
-          </svg>
 
-          <span className="ml-2">Tạo thiết bị</span>
-        </Button>
+      {/* Tiêu đề */}
+      <h2 className=" mx-6 mt-6 text-[24px] font-bold text-mine-shaft mb-4">Máy Lọc Nước RYO Hyundai RP901</h2>
+
+      <div className="grid grid-cols-10 gap-x-[30px] mx-6">
+
+        {/* Thông tin sản phẩm gốc */}
+        <div className="bg-white py-[15px] col-span-7">
+          <div className="px-[20px] pb-[15px] mb-[15px] border-b border-solid border-b-[#E8EAEB] text-[14px] font-semibold text-[#333]">Thông tin sản phẩm gốc</div>
+
+          <form onSubmit={handleSubmit}>
+            <div className="px-6">
+              {/* Tên sản phẩm gốc */}
+              <div className="mb-6">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Tên sản phẩm gốc <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Nhập tên sản phẩm gốc"
+                  className="outline-none p-3 mt-1 block w-full border border-solid"
+                />
+              </div>
+
+              <div className="mb-6 grid grid-cols-2 gap-x-4">
+                {/* Mã SKU sản phẩm */}
+                <div>
+                  <label
+                    htmlFor="sku"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Mã SKU sản phẩm <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="sku"
+                    name="sku"
+                    value={formData.sku}
+                    onChange={handleChange}
+                    placeholder="Nhập mã SKU"
+                    className="mt-1 block w-full border border-solid p-2 outline-none"
+                  />
+                </div>
+
+                {/* Link chi tiết trên website */}
+                <div>
+                  <label
+                    htmlFor="linkWebsite"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Link chi tiết trên website
+                  </label>
+                  <input
+                    type="text"
+                    id="linkWebsite"
+                    name="linkWebsite"
+                    value={formData.linkWebsite}
+                    onChange={handleChange}
+                    placeholder="Nhập link chi tiết"
+                    className="mt-1 block w-full border border-solid p-2 outline-none"
+                  />
+                </div>
+
+              </div>
+
+              <div className="mb-6 grid grid-cols-2 gap-x-4">
+                {/* Loại sản phẩm gốc */}
+                <div>
+                  <label
+                    htmlFor="type"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Loại sản phẩm gốc <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    id="type"
+                    name="type"
+                    value={formData.type}
+                    onChange={handleChange}
+                    className="mt-1 block w-full border border-solid p-[9px]"
+                  >
+                    <option value="">- Chọn -</option>
+                    <option value="RYO Hyundai">RYO Hyundai</option>
+                    <option value="3M">3M</option>
+                  </select>
+                </div>
+
+                {/* Thương hiệu */}
+                <div>
+                  <label
+                    htmlFor="brand"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Thương hiệu
+                  </label>
+                  <select
+                    id="brand"
+                    name="brand"
+                    value={formData.brand}
+                    onChange={handleChange}
+                    className="mt-1 block w-full border border-solid p-[9px]"
+                  >
+                    <option value="">- Chọn -</option>
+                    <option value="RYO Hyundai">RYO Hyundai</option>
+                    <option value="3M">3M</option>
+                  </select>
+                </div>
+
+              </div>
+
+            </div>
+
+          </form>
+        </div>
+
+        {/* Ảnh sản phẩm gốc */}
+        <div className="bg-white py-[15px] col-span-3">
+          <div className="px-[20px] pb-[15px] mb-[15px] border-b border-solid border-b-[#E8EAEB] text-[14px] font-semibold text-[#333]">Ảnh sản phẩm gốc</div>
+
+          <div className=" flex items-center justify-center w-full h-48 mb-4">
+            {formData.image ? (
+              <img
+                src={URL.createObjectURL(formData.image)}
+                alt="Preview"
+                className="object-cover w-full h-full"
+              />
+            ) : (
+              <label
+                htmlFor="image"
+                className="flex flex-col items-center justify-center cursor-pointer"
+              >
+                <span className="text-blue-500">Upload ảnh</span>
+                <input
+                  type="file"
+                  id="image"
+                  name="image"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  className="hidden"
+                />
+              </label>
+            )}
+          </div>
+
+          {/* <div className="flex items-center justify-between px-5">
+            <div><button className="text-[14px] text-[#0076DC]">Đổi ảnh</button></div>
+            <div><button className="text-[14px] text-[#0076DC]">Xóa</button></div>
+          </div> */}
+        </div>
+
       </div>
 
-      <div className="bg-white mx-6 mt-6 py-6 mb-20">
+      {/* Bảng */}
+      <div className="bg-white mx-6 mt-6 py-6 mb-6">
+        {/* Tabs */}
         <div className="mb-6 font-bold border-b border-b-solid">
-          <div className="inline-block pl-[20px] pb-6 font-bold text-[14px] text-[#0076DC]  border-b border-b-solid border-b-[#0076DC]">Tất cả sản phẩm gốc</div>
+          <button
+            className={'inline-block pl-[20px] pb-6 font-bold text-[14px] text-[#0076DC] border-b-[#0076DC] border-b border-b-solid'}
+          >
+            Thành phẩm sản phẩm chu kỳ
+          </button>
+
         </div>
 
         {/* Tìm kiếm */}
-        <div className="flex mx-[20px] max-w-[700px] gap-x-1 mb-6 items-center border border-gray-300 px-3 py-2 ">
+        <div className="flex mx-[20px] max-w-[650px] gap-x-1 mb-6 items-center border border-gray-300 px-3 py-2 ">
           {/* Icon tìm kiếm */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -179,68 +220,161 @@ function OriginalProductsCreatePage({ className }: OriginalProductsCreatePagePro
           </svg>
 
           {/* Input tìm kiếm */}
-          <div className="border-r px-1 border-r-solid flex-1">
+          <div className="flex-1">
             <input
               type="text"
-              placeholder="Tìm theo tên Sản phẩm gốc, Mã SKU sản phẩm"
+              placeholder="Tìm theo tên Sản phẩm chu kỳ, Mã SKU"
               className="w-full text-gray-700 focus:outline-none bg-transparent"
             />
           </div>
 
-          {/* Thương hiệu */}
-          <div className="border-r px-1 border-r-solid">
-            <select name="Thương hiệu" id="" className="text-mine-shaft outline-none border-none">
-              <option value="1">Thương hiệu 1</option>
-              <option value="1">Thương hiệu 2</option>
-              <option value="1">Thương hiệu 3</option>
-            </select>
-          </div>
-
-          {/* Bộ lọc khác */}
-          <button className="flex items-center text-gray-500 hover:text-gray-700">
-            <span className="mr-1">Bộ lọc khác</span>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fillRule="evenodd" clipRule="evenodd" d="M0.250178 2.10139C2.27018 4.49216 6.00018 8.92293 6.00018 8.92293V14.4614C6.00018 14.9691 6.45018 15.3845 7.00018 15.3845H9.00018C9.55018 15.3845 10.0002 14.9691 10.0002 14.4614V8.92293C10.0002 8.92293 13.7202 4.49216 15.7402 2.10139C16.2502 1.49216 15.7802 0.615234 14.9502 0.615234H1.04018C0.210178 0.615234 -0.259822 1.49216 0.250178 2.10139Z" fill="#999999"/>
-            </svg>
-          </button>
         </div>
 
+        {/* Content */}
         <div className="overflow-x-auto">
-          <TableContainer component={Paper}>
-            <Table aria-label="collapsible table">
-              <TableHead className="bg-[#E8EAEB]">
-                <TableRow>
-                  <TableCell/>
-                  <TableCell><span className="text-mine-shaft font-semibold">Ảnh</span></TableCell>
-                  <TableCell>
-                    <span className="text-mine-shaft font-semibold">Sản phẩm gốc</span>
-                  </TableCell>
-                  <TableCell>
-                    <span className="text-mine-shaft font-semibold">Thương hiệu</span>
-                  </TableCell>
-                  <TableCell>
-                    <span className="text-mine-shaft font-semibold">Mã SKU</span>
-                  </TableCell>
-                  <TableCell>
-                    <span className="text-mine-shaft font-semibold">Tổng lượt sử dụng</span>
-                  </TableCell>
-                  <TableCell>
-                    <span className="text-mine-shaft font-semibold">Ghi chú</span>
-                  </TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {rows.map((row) => (
-                  <Row key={row.deviceID} row={row}/>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
+
+          <Table hoverable>
+            <Table.Head>
+              <Table.HeadCell className="bg-[#E8EAEB]">STT</Table.HeadCell>
+              <Table.HeadCell className="bg-[#E8EAEB]">Ảnh</Table.HeadCell>
+              <Table.HeadCell className="bg-[#E8EAEB]">Sản phẩm chu kỳ</Table.HeadCell>
+              <Table.HeadCell className="bg-[#E8EAEB]">Thương hiệu</Table.HeadCell>
+              <Table.HeadCell className="bg-[#E8EAEB]">Mã SKU sản phẩm</Table.HeadCell>
+              <Table.HeadCell className="bg-[#E8EAEB]">Chu kỳ chăm sóc</Table.HeadCell>
+              <Table.HeadCell className="bg-[#E8EAEB]">Giá bán niêm yết</Table.HeadCell>
+              <Table.HeadCell className="bg-[#E8EAEB]"></Table.HeadCell>
+            </Table.Head>
+            <Table.Body className="divide-y">
+              {
+                false ? (
+                  <>
+                    <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                      <Table.Cell className="text-mine-shaft">1</Table.Cell>
+                      <Table.Cell></Table.Cell>
+                      <Table.Cell className="whitespace-nowrap font-medium text-[#0076DC] dark:text-white">
+                        Lõi lọc RYO Sediment Filter
+                      </Table.Cell>
+                      <Table.Cell>RYO Hyundai</Table.Cell>
+                      <Table.Cell>RYO Sediment</Table.Cell>
+                      <Table.Cell>6 tháng</Table.Cell>
+                      <Table.Cell>250,000</Table.Cell>
+                      <Table.Cell className="flex items-center gap-x-10">
+                        <button>
+                          <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fillRule="evenodd" clipRule="evenodd" d="M0 12H18V10H0V12ZM0 7H18V5H0V7ZM0 0V2H18V0H0Z" fill="#999999"/>
+                          </svg>
+
+                        </button>
+
+                        <button>
+                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fillRule="evenodd" clipRule="evenodd" d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#999999"/>
+                          </svg>
+                        </button>
+                      </Table.Cell>
+                    </Table.Row>
+                    <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                      <Table.Cell className="text-mine-shaft">2</Table.Cell>
+                      <Table.Cell></Table.Cell>
+                      <Table.Cell className="whitespace-nowrap font-medium text-[#0076DC] dark:text-white">
+                        Lõi lọc RYO Sediment Filter
+                      </Table.Cell>
+                      <Table.Cell>RYO Hyundai</Table.Cell>
+                      <Table.Cell>RYO Sediment</Table.Cell>
+                      <Table.Cell>6 tháng</Table.Cell>
+                      <Table.Cell>250,000</Table.Cell>
+                      <Table.Cell className="flex items-center gap-x-10">
+                        <button>
+                          <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fillRule="evenodd" clipRule="evenodd" d="M0 12H18V10H0V12ZM0 7H18V5H0V7ZM0 0V2H18V0H0Z" fill="#999999"/>
+                          </svg>
+
+                        </button>
+
+                        <button>
+                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fillRule="evenodd" clipRule="evenodd" d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#999999"/>
+                          </svg>
+                        </button>
+                      </Table.Cell>
+                    </Table.Row>
+                    <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                      <Table.Cell className="text-mine-shaft"></Table.Cell>
+                      <Table.Cell></Table.Cell>
+                      <Table.Cell className="whitespace-nowrap font-medium text-[#0076DC] dark:text-white"></Table.Cell>
+                      <Table.Cell></Table.Cell>
+                      <Table.Cell></Table.Cell>
+                      <Table.Cell className="font-semibold text-mine-shaft">Giá trọn bộ:</Table.Cell>
+                      <Table.Cell className="font-semibold text-mine-shaft">1,940,000đ</Table.Cell>
+
+                    </Table.Row>
+                  </>
+                ) : (
+                  <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                    <Table.Cell colSpan={7} className="text-[#999] text-center">Bạn chưa chọn Sản phẩm chu kỳ nào</Table.Cell>
+
+                  </Table.Row>
+                )
+              }
+
+            </Table.Body>
+          </Table>
+
         </div>
+      </div>
+
+      {/** Mô tả */}
+      <div className="grid grid-cols-10 gap-x-[30px] mx-6">
+
+        {/* Mô tả sản phẩm gốc */}
+        <div className="bg-white py-[15px] col-span-7">
+          <div className="px-[20px] pb-[15px] mb-[15px] border-b border-solid border-b-[#E8EAEB] text-[14px] font-semibold text-[#333]">Mô tả sản phẩm gốc</div>
+
+        </div>
+
+        {/* Thông tin bổ sung */}
+        <div className="bg-white py-[15px] col-span-3">
+          <div className="px-[20px] pb-[15px] mb-[15px] border-b border-solid border-b-[#E8EAEB] text-[14px] font-semibold text-[#333]">Thông tin bổ sung</div>
+
+          <form className="px-[20px]">
+            <div className="mb-6">
+              <label
+                htmlFor="note"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Ghi chú
+              </label>
+              <input
+                type="text"
+                id="note"
+                name="note"
+                placeholder=""
+                className="outline-none p-3 mt-1 block w-full border border-solid"
+              />
+            </div>
+
+            <div className="mb-6">
+              <label
+                htmlFor="tag"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Tags
+              </label>
+              <input
+                type="text"
+                id="tag"
+                name="tag"
+                placeholder=""
+                className="outline-none p-3 mt-1 block w-full border border-solid"
+              />
+            </div>
+          </form>
+        </div>
+
       </div>
 
     </Page>
   );
 }
 
-export default React.memo(withResourceBundle( OriginalProductsCreatePage , () => import('./translations')));
+export default React.memo(withResourceBundle(OriginalProductsDetailCreatePage , () => import('./translations')));
