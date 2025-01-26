@@ -80,75 +80,75 @@ function FilterReplacementSchedulePage({ className }: FilterReplacementScheduleP
     <Page>
       <div className="p-6 ">
         <div className="bg-white p-6 mb-6 rounded-lg shadow">
-          <div className="flex mb-6 items-center gap-x-6">
+          <div className="flex flex-col md:flex-row mb-6 items-start md:items-center gap-y-4 md:gap-x-6">
+            {/* Số thứ tự */}
             <div className="w-[50px] h-[50px] text-white text-[24px] font-bold bg-[#666] rounded-full flex items-center justify-center">
               1
             </div>
 
-            <div className="flex flex-1 gap-x-4">
-
-              <div className="text-[12px] text-[#999]">
+            {/* Nội dung chính */}
+            <div className="flex flex-col md:flex-row flex-1 gap-y-4 md:gap-x-4">
+              {/* Địa chỉ lắp đặt */}
+              <div className="text-[12px] text-[#999] md:text-left">
                 <div>Địa chỉ lắp đặt:</div>
                 <div>Người nhận hàng | SĐT:</div>
               </div>
 
-              <div className="flex-1 text-[12px] text-[#999]">
-                <div className="font-bold text-mine-shaft">Chung cư Hoàng Anh Thanh Bình, Đà, Tân Hưng, Quận 7, TP. Hồ Chí Minh</div>
+              {/* Địa chỉ và thông tin nhận hàng */}
+              <div className="flex-1 text-[12px] text-[#999] md:text-left">
+                <div className="font-bold text-mine-shaft">
+                  Chung cư Hoàng Anh Thanh Bình, Đà, Tân Hưng, Quận 7, TP. Hồ Chí Minh
+                </div>
                 <div>Lâm Nguyễn | SĐT: ********975</div>
               </div>
 
-              <div className="text-[12px] text-[#999]">
+              {/* Schedule ID */}
+              <div className="text-[12px] text-[#999] md:text-right">
                 <div>Schedule ID #5558883574</div>
               </div>
-              <div>
-              </div>
-
             </div>
-
           </div>
 
-          <table className="w-full text-left-collapse bg-[#F0F9FE]">
-            <thead className="bg-mine-shaft text-white">
-              <tr>
-                <th className="py-5 px-3 ">#</th>
-                <th className="py-5 px-3 ">Ảnh</th>
-                <th className="py-5 px-3 ">Tên lõi lọc / Dịch vụ</th>
-                <th className="py-5 px-3 ">Ngày thay gần nhất</th>
-                <th className="py-5 px-3 ">Chu kỳ thay</th>
-                <th className="py-5 px-3 ">Ngày thay tiếp theo</th>
-                <th className="py-5 px-3 ">Đơn giá (VNĐ)</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((item) => (
-                <React.Fragment key={item.id}>
-                  <tr>
-                    <td colSpan={2} className="p-3 font-bold">{item.id}</td>
-                    <td colSpan={4} className="p-3 font-bold">
-                      {item.title}
-                    </td>
-                  </tr>
-                  {item.filters.map((filter, index) => (
-                    <tr key={index} className="">
-                      <td className="p-3"></td>
-                      <td className="p-3 bg-white border-b"></td>
-                      <td className="p-3 bg-white border-b">{filter.name}</td>
-                      <td className="p-3 bg-white">{filter.lastChange}</td>
-                      <td className={`p-3 !bg-white ${filter.statusClass}`}>{filter.cycle}</td>
-                      <td className="p-3 bg-white">
-                        <span
-                          className={`px-2 py-1 rounded ${filter.statusClass}`}
-                        >
-                          {filter.status}
-                        </span>
-                      </td>
-                      <td className="p-3 bg-white">{filter.price}</td>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left bg-[#F0F9FE]">
+              <thead className="bg-mine-shaft text-white">
+                <tr>
+                  <th className="py-5 px-3">#</th>
+                  <th className="py-5 px-3">Ảnh</th>
+                  <th className="py-5 px-3">Tên lõi lọc / Dịch vụ</th>
+                  <th className="py-5 px-3">Ngày thay gần nhất</th>
+                  <th className="py-5 px-3">Chu kỳ thay</th>
+                  <th className="py-5 px-3">Ngày thay tiếp theo</th>
+                  <th className="py-5 px-3">Đơn giá (VNĐ)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((item) => (
+                  <React.Fragment key={item.id}>
+                    <tr>
+                      <td colSpan={2} className="p-3 font-bold">{item.id}</td>
+                      <td colSpan={4} className="p-3 font-bold">{item.title}</td>
                     </tr>
-                  ))}
-                </React.Fragment>
-              ))}
-            </tbody>
-          </table>
+                    {item.filters.map((filter, index) => (
+                      <tr key={index} className="">
+                        <td className="p-3"></td>
+                        <td className="p-3 bg-white border-b"></td>
+                        <td className="p-3 bg-white border-b">{filter.name}</td>
+                        <td className="p-3 bg-white">{filter.lastChange}</td>
+                        <td className={`p-3 !bg-white ${filter.statusClass}`}>{filter.cycle}</td>
+                        <td className="p-3 bg-white">
+                          <span className={`px-2 py-1 rounded ${filter.statusClass}`}>
+                            {filter.status}
+                          </span>
+                        </td>
+                        <td className="p-3 bg-white">{filter.price}</td>
+                      </tr>
+                    ))}
+                  </React.Fragment>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <div className="bg-white p-6 rounded-lg">
