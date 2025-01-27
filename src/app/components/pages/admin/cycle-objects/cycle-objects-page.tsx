@@ -59,7 +59,7 @@ function CycleObjectsPage({ className }: CycleObjectsPageProps) {
         </div>
 
         {/* Tìm kiếm */}
-        <div className="flex mx-[20px] max-w-[700px] gap-x-1 mb-6 items-center border border-gray-300 px-3 py-2">
+        <div className="flex mx-[20px] max-w-[700px] gap-x-1 mb-6 items-center border border-gray-300 px-3 py-2 ">
           {/* Icon tìm kiếm */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -78,9 +78,18 @@ function CycleObjectsPage({ className }: CycleObjectsPageProps) {
           <div className="border-r px-1 border-r-solid flex-1">
             <input
               type="text"
-              placeholder="Tìm theo tên sản phẩm, mã sản phẩm"
-              className="w-full text-gray-700 focus:outline-none bg-transparent border-none outline-none focus:border-none shadow-none"
+              placeholder="Tìm theo tên Sản phẩm chu kỳ, Mã SKU sản phẩm"
+              className="w-full text-gray-700 bg-transparent border-none outline-none shadow-none border-transparent focus:border-none focus:shadow-none focus:outline-none"
             />
+          </div>
+
+          {/* Thương hiệu */}
+          <div className="border-r px-1 border-r-solid">
+            <select name="Thương hiệu" id="" className="text-mine-shaft outline-none border-none shadow-none">
+              <option value="1">Thương hiệu 1</option>
+              <option value="1">Thương hiệu 2</option>
+              <option value="1">Thương hiệu 3</option>
+            </select>
           </div>
 
           {/* Bộ lọc khác */}
@@ -99,12 +108,12 @@ function CycleObjectsPage({ className }: CycleObjectsPageProps) {
                 <Checkbox/>
               </Table.HeadCell>
               <Table.HeadCell className="bg-[#E8EAEB]">Hình ảnh</Table.HeadCell>
-              <Table.HeadCell className="bg-[#E8EAEB]">Tên sản phẩm</Table.HeadCell>
-              <Table.HeadCell className="bg-[#E8EAEB]">Hãng</Table.HeadCell>
+              <Table.HeadCell className="bg-[#E8EAEB]">Sản phẩm chu kỳ</Table.HeadCell>
+              <Table.HeadCell className="bg-[#E8EAEB]">Thương hiệu</Table.HeadCell>
               <Table.HeadCell className="bg-[#E8EAEB]">Mã SKU</Table.HeadCell>
-              <Table.HeadCell className="bg-[#E8EAEB]">Chu kỳ bảo dưỡng</Table.HeadCell>
-              <Table.HeadCell className="bg-[#E8EAEB]">Giá</Table.HeadCell>
-              <Table.HeadCell className="bg-[#E8EAEB]">Số lượng sử dụng</Table.HeadCell>
+              <Table.HeadCell className="bg-[#E8EAEB]">Chu kỳ chăm sóc</Table.HeadCell>
+              <Table.HeadCell className="bg-[#E8EAEB]">Giá bán</Table.HeadCell>
+              <Table.HeadCell className="bg-[#E8EAEB]">Tổng lượt sử dụng</Table.HeadCell>
               <Table.HeadCell className="bg-[#E8EAEB]">Ghi chú</Table.HeadCell>
             </Table.Head>
             <Table.Body className="divide-y">

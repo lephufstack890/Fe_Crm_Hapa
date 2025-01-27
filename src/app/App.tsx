@@ -3,6 +3,7 @@ import MainCustomerLayout from '@components/layouts/customer/main-customer-layou
 import CustomerDetailPage from '@components/pages/admin/customer-detail/customer-detail-page';
 import CustomersPage from '@components/pages/admin/customers/customers-page';
 import CycleObjectsPage from '@components/pages/admin/cycle-objects/cycle-objects-page';
+import CycleObjectsDetailPage from '@components/pages/admin/cycle-objects-detail/cycle-objects-detail-page';
 import DevicesPage from '@components/pages/admin/devices/devices-page';
 import FiltersPage from '@components/pages/admin/filters/filters-page';
 import FiltersCreateAndEditPage from '@components/pages/admin/filters-create-and-edit/filters-create-and-edit-page';
@@ -41,13 +42,16 @@ function App() {
         <Route path="/admin/customers" element={<CustomersPage/>}/>
         <Route path="/admin/customers/:id" element={<CustomerDetailPage/>}/>
         <Route path="/admin/orders" element={<OrdersPage/>}/>
-        <Route path="/admin/cycle-objects" element={<CycleObjectsPage/>}/>
 
         {/** các page liên quan đến sản phẩm gốc */}
         <Route path="/admin/original-products" element={<OriginalProductsPage/>}/>
         <Route path="/admin/original-products/:id" element={<OriginalProductsDetailPage/>}/>
         <Route path="/admin/original-products/:id/edit" element={<OriginalProductsDetailEditPage/>}/>
         <Route path="/admin/original-products/create" element={<OriginalProductsCreatePage/>}/>
+
+        {/** các page liên quan đến danh sách sản phẩm chu kỳ */}
+        <Route path="/admin/cycle-objects" element={<CycleObjectsPage/>}/>
+        <Route path="/admin/cycle-objects/:id" element={<CycleObjectsDetailPage/>}/>
 
         {/** page tạm thời không dùng */}
         <Route path="/admin/filters" element={<FiltersPage/>}/>
