@@ -196,12 +196,12 @@ function FiltersCreateAndEditPage({ className }: FiltersCreateAndEditPageProps) 
 
           {/* Image Upload Section */}
           <div>
-            <div className="bg-white p-6 shadow">
-              <h3 className="text-lg font-semibold text-gray-700 mb-4 ">
+            <div className="bg-white shadow">
+              <h3 className="text-lg p-6 border-b border-b-solid font-semibold text-gray-700 mb-4">
                 Ảnh lõi lọc
               </h3>
 
-              <div className="flex items-center justify-center w-full h-48 border border-dashed border-gray-300 rounded-md">
+              <div className="flex items-center justify-center w-full h-48">
                 {formData.image ? (
                   <img
                     src={URL.createObjectURL(formData.image)}

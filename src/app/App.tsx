@@ -3,7 +3,9 @@ import MainCustomerLayout from '@components/layouts/customer/main-customer-layou
 import CustomerDetailPage from '@components/pages/admin/customer-detail/customer-detail-page';
 import CustomersPage from '@components/pages/admin/customers/customers-page';
 import CycleObjectsPage from '@components/pages/admin/cycle-objects/cycle-objects-page';
+import CycleObjectsCreatePage from '@components/pages/admin/cycle-objects-create/cycle-objects-create-page';
 import CycleObjectsDetailPage from '@components/pages/admin/cycle-objects-detail/cycle-objects-detail-page';
+import CycleObjectsDetailEditPage from '@components/pages/admin/cycle-objects-detail-edit/cycle-objects-detail-edit-page';
 import DevicesPage from '@components/pages/admin/devices/devices-page';
 import FiltersPage from '@components/pages/admin/filters/filters-page';
 import FiltersCreateAndEditPage from '@components/pages/admin/filters-create-and-edit/filters-create-and-edit-page';
@@ -52,6 +54,8 @@ function App() {
         {/** các page liên quan đến danh sách sản phẩm chu kỳ */}
         <Route path="/admin/cycle-objects" element={<CycleObjectsPage/>}/>
         <Route path="/admin/cycle-objects/:id" element={<CycleObjectsDetailPage/>}/>
+        <Route path="/admin/cycle-objects/:id/edit" element={<CycleObjectsDetailEditPage/>}/>
+        <Route path="/admin/cycle-objects/create" element={<CycleObjectsCreatePage/>}/>
 
         {/** page tạm thời không dùng */}
         <Route path="/admin/filters" element={<FiltersPage/>}/>

@@ -34,7 +34,7 @@ function OriginalProductsDetailCreatePage({ className }: OriginalProductsDetailC
     <Page>
 
       {/* Tiêu đề */}
-      <h2 className=" mx-6 mt-6 text-[24px] font-bold text-mine-shaft mb-4">Máy Lọc Nước RYO Hyundai RP901</h2>
+      <h2 className=" mx-6 mt-6 text-[24px] font-bold text-mine-shaft mb-4">Thêm mới Sản phẩm gốc</h2>
 
       <div className="grid grid-cols-10 gap-x-[30px] mx-6">
 
