@@ -1,4 +1,4 @@
-import { OriginalProductsDetailProps } from './original-products-detail-page.types';
+import { OriginalProductsDetailPageProps } from './original-products-detail-page.types';
 import Page from '@components/elements/page';
 import { withResourceBundle } from '@lib/i18n';
 import { Box, Collapse, IconButton, Paper, TableHead, TableRow, Typography } from '@mui/material';
@@ -159,7 +159,7 @@ const rows = [
   createData('5558465375', 'Hoàng Oanh', 'TP. Hồ Chí Minh', '', '0', 'abc'),
   createData('5558465375', 'Hoàng Oanh', 'TP. Hồ Chí Minh', '', '0', 'abc'),
 ];
-function OriginalProductsDetailPage({ className }: OriginalProductsDetailProps) {
+function OriginalProductsDetailPage({ className }: OriginalProductsDetailPageProps) {
 
   const [ activeTab, setActiveTab ] = useState('products'); // Tab mặc định
 

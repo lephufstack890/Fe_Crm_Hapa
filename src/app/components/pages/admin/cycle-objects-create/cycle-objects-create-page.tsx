@@ -1,4 +1,4 @@
-import { CycleObjectsCreatePageProps } from './cycle-objects-detail-edit-page.types';
+import { CycleObjectsCreatePageProps } from './cycle-objects-create-page.types';
 import Page from '@components/elements/page';
 import { withResourceBundle } from '@lib/i18n';
 import { Checkbox } from '@mui/material';

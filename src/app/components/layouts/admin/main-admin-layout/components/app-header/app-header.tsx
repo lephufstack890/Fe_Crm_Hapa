@@ -1,10 +1,10 @@
 import styles from './app-header.module.scss';
-import { AppHeaderProps } from './app-header.types';
 // import useAppHeaderViewModel from './app-header.view-model';
 import { withResourceBundle } from '@lib/i18n';
 import clsx from 'clsx';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { AppHeaderProps } from './app-header.types';
 // import { HiOutlineHome } from 'react-icons/hi2';
 
 function AppHeader(props: AppHeaderProps) {

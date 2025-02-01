@@ -1,10 +1,10 @@
-import { OriginalProductsDetailCreatePageProps } from './original-products-detail-edit-page.types';
+import { OriginalProductsCreatePageProps } from './original-products-create-page.types';
 import Page from '@components/elements/page';
 import { withResourceBundle } from '@lib/i18n';
 import { Table } from 'flowbite-react';
 import React, { useState } from 'react';
 
-function OriginalProductsDetailCreatePage({ className }: OriginalProductsDetailCreatePageProps) {
+function OriginalProductsDetailCreatePage({ className }: OriginalProductsCreatePageProps) {
 
   const [ formData, setFormData ] = useState({
     name: '',

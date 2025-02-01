@@ -5,13 +5,9 @@ import { withResourceBundle } from '@lib/i18n';
 import clsx from 'clsx';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import { HiOutlineHome } from 'react-icons/hi2';
 
-interface AppHeaderProps {
-  onToggleSidebar: () => void; // Nhận prop callback từ MainUserLayout
-}
 
-const AppHeader: React.FC<AppHeaderProps> = ({ onToggleSidebar }) => {
+const AppHeader: React.FC<AppHeaderProps> = ({ onToggleSidebar, className }) => {
   return (
     <header className="bg-white shadow-md p-4 sticky z-50 w-full top-0">
       <div className="flex items-center justify-between">
