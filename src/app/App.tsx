@@ -39,30 +39,30 @@ function App() {
       </Route>
 
       {/** Admin */}
-      <Route path="/admin/login" index element={<LoginsPage/>}/>
+      <Route path="admin/login" index element={<LoginsPage/>}/>
       <Route element={<MainAdminLayout/>}>
-        <Route path="/admin/customers" element={<CustomersPage/>}/>
-        <Route path="/admin/customers/:id" element={<CustomerDetailPage/>}/>
-        <Route path="/admin/orders" element={<OrdersPage/>}/>
+        <Route path="admin/customers" element={<CustomersPage/>}/>
+        <Route path="admin/customers/:id" element={<CustomerDetailPage/>}/>
+        <Route path="admin/orders" element={<OrdersPage/>}/>
 
         {/** các page liên quan đến sản phẩm gốc */}
-        <Route path="/admin/original-products" element={<OriginalProductsPage/>}/>
-        <Route path="/admin/original-products/:id" element={<OriginalProductsDetailPage/>}/>
-        <Route path="/admin/original-products/:id/edit" element={<OriginalProductsDetailEditPage/>}/>
-        <Route path="/admin/original-products/create" element={<OriginalProductsCreatePage/>}/>
+        <Route path="admin/original-products" element={<OriginalProductsPage/>}/>
+        <Route path="admin/original-products/:id" element={<OriginalProductsDetailPage/>}/>
+        <Route path="admin/original-products/:id/edit" element={<OriginalProductsDetailEditPage/>}/>
+        <Route path="admin/original-products/create" element={<OriginalProductsCreatePage/>}/>
 
         {/** các page liên quan đến danh sách sản phẩm chu kỳ */}
-        <Route path="/admin/cycle-objects" element={<CycleObjectsPage/>}/>
-        <Route path="/admin/cycle-objects/:id" element={<CycleObjectsDetailPage/>}/>
-        <Route path="/admin/cycle-objects/:id/edit" element={<CycleObjectsDetailEditPage/>}/>
-        <Route path="/admin/cycle-objects/create" element={<CycleObjectsCreatePage/>}/>
+        <Route path="admin/cycle-objects" element={<CycleObjectsPage/>}/>
+        <Route path="admin/cycle-objects/:id" element={<CycleObjectsDetailPage/>}/>
+        <Route path="admin/cycle-objects/:id/edit" element={<CycleObjectsDetailEditPage/>}/>
+        <Route path="admin/cycle-objects/create" element={<CycleObjectsCreatePage/>}/>
 
         {/** page tạm thời không dùng */}
-        <Route path="/admin/filters" element={<FiltersPage/>}/>
-        <Route path="/admin/filters/:id" element={<FiltersDetailPage/>}/>
-        <Route path="/admin/filters/:id/edit" element={<FiltersCreateAndEditPage/>}/>
-        <Route path="/admin/filters/create" element={<FiltersCreateAndEditPage/>}/>
-        <Route path="/admin/devices" element={<DevicesPage/>}/>
+        <Route path="admin/filters" element={<FiltersPage/>}/>
+        <Route path="admin/filters/:id" element={<FiltersDetailPage/>}/>
+        <Route path="admin/filters/:id/edit" element={<FiltersCreateAndEditPage/>}/>
+        <Route path="admin/filters/create" element={<FiltersCreateAndEditPage/>}/>
+        <Route path="admin/devices" element={<DevicesPage/>}/>
       </Route>
 
       {/** 404 Page */}
