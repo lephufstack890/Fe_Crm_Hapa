@@ -33,6 +33,9 @@ const AppHeader: React.FC<AppHeaderProps> = ({ onToggleSidebar, className }) => 
           <Link to="/" className="text-mine-shaft md:text-[14px] text-[12px]">
             Liên hệ
           </Link>
+          <Link to="/admin/customers" className="text-mine-shaft md:text-[14px] text-[12px]">
+            Admin
+          </Link>
         </div>
 
         {/* Hotline Section */}
