@@ -1,0 +1,1 @@
+const e={title:"Login",username:"Username",usernameRequired:"Username is required",loginButton:"Login"},n={title:"Entrar",username:"Usuário",usernameRequired:"Usuário é obrigatório",loginButton:"Entrar"},r={en:e,"pt-BR":n};export{r as default};
